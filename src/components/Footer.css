@@ -1,0 +1,178 @@
+/* =========================
+   DNCL FOOTER — SOLID THEME
+========================= */
+
+.dncl-footer {
+  background: #f2f2f2;
+  font-family: inherit;
+  color: #000000;
+}
+
+/* REMOVE OVERLAY COMPLETELY */
+.dncl-footer::before {
+  display: none;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.dncl-footer-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 80px 32px 50px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 60px;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.dncl-footer-logo {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.dncl-footer-tagline {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.dncl-footer-legal {
+  font-size: 13px;
+  margin-top: 14px;
+  opacity: 0.85;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.dncl-footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.dncl-footer-contact-item svg {
+  color: BLACK;   
+}
+
+
+
+/* =========================
+   SOCIAL
+========================= */
+
+.dncl-footer-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  margin-bottom: 18px;   /*  pushes lion down */
+}
+
+
+.dncl-footer-social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #000000;      /* ✅ BLACK BG */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dncl-footer-social svg {
+  color: #ffffff;           /* ✅ WHITE ICONS */
+}
+
+
+.dncl-footer-social a:hover {
+  background: #1e40ff;
+  transform: translateY(-3px);
+}
+
+/* =========================
+   BOTTOM BAR
+========================= */
+
+.dncl-footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.35);
+  padding: 18px 32px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .dncl-footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .dncl-footer-social {
+    justify-content: center;
+  }
+
+  .dncl-footer-contact-item {
+    justify-content: center;
+  }
+}
+/* ================= FORCE FOOTER TEXT BLACK ================= */
+
+
+.dncl-footer-follow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* ✅ CENTER COLUMN */
+  text-align: center;
+}
+
+
+.dncl-footer-follow h5 {
+  margin-bottom: 14px;   /* ✅ perfect spacing */
+}
+
+
+/* ===== FORCE PURE BLACK TEXT ===== */
+
+.dncl-footer h4,
+.dncl-footer h5,
+.dncl-footer p,
+.dncl-footer span {
+  color: #000000;
+  opacity: 1;
+}
+
+/* ===============================
+   FOOTER BRAND IMAGE
+================================ */
+.dncl-footer-brand {
+  margin-bottom: 18px;
+}
+
+.dncl-footer-brand img {
+  max-width: 180px;      /* adjust if needed */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* MOBILE ADJUSTMENT */
+@media (max-width: 600px) {
+  .dncl-footer-brand img {
+    max-width: 150px;
+  }
+}

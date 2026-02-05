@@ -1,0 +1,281 @@
+.dncl-hero {
+  background-size: cover;
+  background-position: center;
+  color: #111;
+  padding: clamp(80px, 10vw, 100px) clamp(16px, 3vw, 20px) clamp(40px, 6vw, 60px);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+
+  transition: background-image 0.5s ease;
+}
+
+/* LEFT */
+.dncl-hero-left {
+  max-width: clamp(300px, 80vw, 900px);
+  margin: 0;
+}
+
+.dncl-hero-tag {
+  font-size: clamp(14px, 2vw, 15px);
+  opacity: 0.8;
+  margin-bottom: 8px;
+  font-size:x-large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+}
+
+.dncl-hero-left h1 {
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.dncl-hero-left p {
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.7;
+  color: #444444;
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+
+
+.dncl-card-sub {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.dncl-hero-card h3 {
+  margin: 12px 0 16px;
+}
+
+.dncl-hero-card a {
+  color: #4f8cff;
+  text-decoration: none;
+}
+
+/* SCROLL */
+.dncl-scroll {
+  position: absolute;
+  bottom: 70px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+
+/* RIGHT CARD LINK */
+.dncl-hero-card-link {
+  text-decoration: none;
+  color: white;
+}
+
+/* CARD DESCRIPTION */
+.dncl-card-desc {
+  font-size: 14px;
+  color: #cfcfcf;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* CARD CTA */
+.dncl-card-link {
+  color: #4f8cff;
+  font-weight: 600;
+}
+
+
+/* CONTACT US BUTTON – POP EFFECT ONLY */
+.dncl-hero-btn {
+  background: #1e40ff;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+}
+
+
+/* RIGHT SIDE CARD STACK */
+.dncl-hero-right-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* CONTACT US BUTTON — FIXED (NO HOVER, NO UNDERLINE) */
+.dncl-hero-btn,
+.dncl-hero-btn:hover,
+.dncl-hero-btn:focus,
+.dncl-hero-btn:active,
+.dncl-hero-btn:visited {
+  background: #1e40ff;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 12px 22px;
+
+  /* HARD LOCK */
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.dncl-hero-content {
+  max-width: 1200px;
+  margin: 0 0 0 clamp(20px, 5vw, 80px); /* push content toward left side of hero */
+
+  display: flex;
+  align-items: center;        /* vertical center */
+  justify-content: flex-start; /* push content left */
+}
+
+
+.dncl-hero-left {
+  max-width: 650px;
+  text-align: left;
+  margin: 0; /* ensure no centering from earlier rule */
+}
+
+
+/* ================= HERO CARDS SECTION ================= */
+.dncl-hero-cards-section {
+  background: #ffffff;
+  padding: clamp(60px, 8vw, 80px) clamp(16px, 3vw, 32px) clamp(70px, 8vw, 90px);
+}
+
+.dncl-hero-cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2vw, 20px);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(30px, 5vw, 56px);
+}
+
+/* COLUMN WRAPPER */
+.dncl-hero-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 clamp(8px, 1vw, 12px);
+}
+
+/* TITLES ABOVE CARDS */
+.dncl-hero-card-title {
+  font-size: clamp(24px, 3vw, 28px);
+  font-weight: 800;
+  margin-bottom: clamp(20px, 3vw, 28px);
+  text-align: center;
+  color: #000000;
+}
+
+/* TITLE COLORS */
+.dncl-hero-card-title.retail {
+  color: #0b3c5d; /* DNCL blue */
+}
+
+.dncl-hero-card-title.industrial {
+  color: #111111;
+}
+
+.equal-card {
+  width: 100%;
+  min-height: clamp(200px, 20vh, 240px);
+  background: #eef4ff;
+  border-radius: 24px;
+  padding: clamp(20px, 3vw, 28px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* CARD TEXT */
+.dncl-card-sub {
+  font-size: clamp(13px, 1.5vw, 14px);
+  font-weight: 600;
+  color: #1e40ff;
+  margin-bottom: clamp(12px, 2vw, 16px);
+}
+
+.dncl-card-desc {
+  font-size: clamp(14px, 1.8vw, 15px);
+  line-height: 1.7;
+  color: #555555;
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.dncl-card-link {
+  font-size: clamp(13px, 1.5vw, 14px);
+  font-weight: 700;
+  color: #1e40ff;
+}
+
+/* LINK RESET */
+.dncl-hero-card-link {
+  text-decoration: none;
+  width: 100%;
+  color: inherit;
+}
+
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .dncl-hero-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(24px, 4vw, 40px);
+  }
+
+  .dncl-hero-left h1 {
+    font-size: clamp(34px, 6vw, 48px);
+  }
+}
+
+/* MOBILE LARGE */
+@media (max-width: 768px) {
+  .dncl-hero-cards-container {
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 5vw, 36px);
+  }
+
+  .dncl-hero-card-title {
+    text-align: left;
+    padding-left: clamp(4px, 1vw, 8px);
+    font-size: clamp(20px, 4vw, 24px);
+  }
+
+  .dncl-hero-cards-section {
+    padding: clamp(40px, 6vw, 48px) clamp(12px, 2vw, 16px) clamp(50px, 6vw, 60px);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .dncl-hero-cards-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .equal-card {
+    padding: 20px;
+    min-height: 180px;
+  }
+
+  .dncl-card-desc {
+    margin-bottom: 16px;
+  }
+}

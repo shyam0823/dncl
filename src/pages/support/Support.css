@@ -1,0 +1,392 @@
+/* ================= COMMON ================= */
+
+.text-dark { color: #111; }
+.text-blue { color: #1e40ff; }
+.page-offset { padding-top: 120px; }
+
+/* ================= TICKET SECTION ================= */
+
+.ticket-wrapper {
+  background: #ffffff;
+  padding-bottom: 80px;
+}
+
+.ticket-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.ticket-title {
+  font-size: 46px;
+  margin-bottom: 12px;
+}
+
+.ticket-title span {
+  color: #1e40ff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.ticket-desc {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+/* ================= FORM ================= */
+
+.ticket-form {
+  max-width: 420px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ticket-form input {
+  padding: 14px 16px;
+  font-size: 14.5px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.ticket-form input:focus {
+  outline: none;
+  border-color: #1e40ff;
+}
+
+/* PHONE INPUT */
+
+.phone-input {
+  width: 100%;
+}
+
+.phone-input input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14.5px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.phone-input input:focus {
+  outline: none;
+  border-color: #1e40ff;
+}
+
+.phone-input.error input {
+  border-color: #dc2626;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 13px;
+  text-align: left;
+}
+
+/* BUTTON */
+
+.ticket-form button {
+  margin-top: 10px;
+  padding: 14px;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* touch-friendly */
+.ticket-form button {
+  min-height: 44px;
+}
+
+@media (max-width: 600px) {
+  .ticket-form button {
+    width: 100%;
+  }
+}
+
+/* ================= STEPPER ================= */
+
+.ticket-status-card {
+  background: #f9fafb;
+  border-radius: 18px;
+  padding: 36px;
+  margin-top: 40px;
+}
+
+/* ================= CONTACT SUPPORT (KEEP YOUR OLD STYLES BELOW) ================= */
+/* ================= CONTACT SUPPORT SECTION ================= */
+
+.support-wrapper {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.support-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 32px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.support-left {
+  max-width: 520px;
+}
+
+.support-left h1 {
+  font-size: 46px;
+  margin-bottom: 16px;
+}
+
+.support-left h3 {
+  font-size: 42px;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.support-left h3 span {
+  color: #1e40ff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.support-left p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.support-contacts,
+.support-mobile {
+  margin-bottom: 28px;
+}
+
+.support-contacts h3,
+.support-mobile h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #1e40ff;
+}
+
+.support-contacts a,
+.support-mobile a {
+  font-size: 16px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.support-contacts a:hover,
+.support-mobile a:hover {
+  text-decoration: underline;
+}
+
+/* ================= RIGHT FORM CARD ================= */
+
+.support-form-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+.support-form-card h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* ================= FORM ================= */
+
+.support-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.support-form input,
+.support-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14.5px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+  outline: none;
+  border-color: #1e40ff;
+}
+
+.support-form textarea {
+  resize: none;
+}
+
+.support-form button {
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 12px 30px;
+  background: #1e40ff;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14.5px;
+}
+
+.support-form button:hover {
+  background: #1636d8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .support-container {
+    grid-template-columns: 1fr;
+  }
+
+  .support-left {
+    max-width: 100%;
+  }
+
+  .support-form-card {
+    margin-top: 40px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================= DELIVERY STYLE STEPPER ================= */
+
+.ticket-status-card {
+  background: #f5f7fb;
+  border-radius: 16px;
+  padding: 40px;
+  margin-top: 60px;
+}
+
+.ticket-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.ticket-status-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.order-id {
+  color: #5b3df5;
+}
+
+.order-meta {
+  font-size: 14px;
+  color: #555;
+}
+
+/* TRACK */
+
+.progress-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* STEP */
+
+.progress-step {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+/* LINE */
+
+.progress-line {
+  position: absolute;
+  top: 22px;
+  left: -50%;
+  width: 100%;
+  height: 6px;
+  background: #dcdff1;
+  z-index: 1;
+}
+
+.progress-line.active {
+  background: #5b3df5;
+}
+
+/* CIRCLE */
+
+.progress-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #dcdff1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-weight: 600;
+  z-index: 2;
+  position: relative;
+  color: #555;
+}
+
+.progress-circle.active {
+  background: #5b3df5;
+  color: #fff;
+}
+
+.progress-circle.completed {
+  background: #5b3df5;
+  color: #fff;
+}
+
+/* ICON + LABEL */
+
+.progress-info {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #222;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .progress-track {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .progress-line {
+    display: none;
+  }
+}

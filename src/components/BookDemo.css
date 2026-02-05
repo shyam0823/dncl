@@ -1,0 +1,180 @@
+/* =====================================
+   BOOK DEMO — FINAL STABLE VERSION
+===================================== */
+
+.bookdemo-section {
+  padding: 100px 0;
+  background: #ffffff;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* CENTER WRAPPER */
+.bookdemo-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3vw, 40px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* GRID */
+.bookdemo-container {
+  display: grid;
+  /* give more width to the right column so the image can be larger */
+  grid-template-columns: minmax(400px, 1fr) minmax(500px, 1.25fr);
+  align-items: center;
+  gap: clamp(40px, 5vw, 70px);
+}
+
+/* =====================================
+   LEFT
+===================================== */
+
+.bookdemo-form {
+  width: 100%;
+}
+
+/* ⭐ PERFECT HEADING */
+.bookdemo-title {
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 700;
+  color: #1e40ff;
+
+  margin-bottom: 6px;
+
+  /* ❌ REMOVE FLEX */
+  display: block;
+}
+
+/* FREE should look identical */
+.bookdemo-title span{
+  font-size: inherit;     /* ⭐ makes it SAME size */
+  font-weight: inherit;
+  color: inherit;
+  letter-spacing: normal;
+}
+
+
+/* SUBTITLE */
+.bookdemo-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 38px;
+  color: #222;
+}
+
+/* INPUT GRID */
+.bookdemo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* INPUTS */
+.bookdemo-grid input,
+.bookdemo-grid select {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  background: #f7f7f7;
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s;
+}
+
+/* FOCUS EFFECT — PREMIUM */
+.bookdemo-grid input:focus,
+.bookdemo-grid select:focus {
+  border-color: #1e40ff;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(30,64,255,0.08);
+}
+
+/* FULL WIDTH DROPDOWNS */
+.bookdemo-grid select {
+  grid-column: span 2;
+}
+
+/* BUTTON */
+.bookdemo-btn {
+  margin-top: 32px;
+  padding: 16px 52px;
+  border-radius: 40px;
+  border: none;
+  background: #1e40ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.bookdemo-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* =====================================
+   RIGHT IMAGE — NO SHRINK EVER
+===================================== */
+
+.bookdemo-image {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* hug the right edge */
+  align-items: center;
+  overflow: visible;
+}
+
+.bookdemo-image img {
+  width: 100%;
+  /* allow the image to grow larger on wide screens */
+  max-width: 470px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1024px) {
+
+  .bookdemo-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .bookdemo-image img {
+    max-width: 380px;
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+  .bookdemo-wrapper {
+    padding: 0 20px;
+  }
+
+  .bookdemo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bookdemo-grid select {
+    grid-column: span 1;
+  }
+
+  .bookdemo-title {
+    font-size: 32px;
+  }
+
+  .bookdemo-subtitle {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,290 @@
+/* ===============================
+   ABOUT HERO (BANNER)
+================================ */
+
+.dncl-about-hero {
+  position: relative;
+  min-height: 320px;
+  height: clamp(280px, 25vh, 400px);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dncl-about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65),
+    rgba(30, 64, 255, 0.55)
+  );
+}
+
+.dncl-about-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.dncl-about-hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ===============================
+   ABOUT INFO SECTION
+================================ */
+
+.dncl-about-info {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.dncl-about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3vw, 32px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dncl-about-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.7fr) minmax(400px, 1.3fr);
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+@media (max-width: 1023px) {
+  .dncl-about-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 5vw, 60px);
+    text-align: center;
+  }
+}
+
+/* ===============================
+   LEFT STATS
+================================ */
+
+.dncl-about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.dncl-about-stats .stat h2 {
+  font-size: 42px;
+  color: #1e40ff;
+  margin-bottom: 6px;
+}
+
+.dncl-about-stats .stat p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* ===============================
+   RIGHT CONTENT
+================================ */
+
+.dncl-about-content h6 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e40ff;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.dncl-about-content h2 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  color: #111;
+}
+
+.dncl-about-content h2 span {
+  color: #1e40ff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.dncl-about-content p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.dncl-about-btn {
+  margin-top: 10px;
+  padding: 14px 32px;
+  background: #1e40ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dncl-about-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(30, 64, 255, 0.35);
+}
+
+/* ===============================
+   DARK CTA SECTION (2nd IMAGE)
+================================ */
+
+.dncl-about-cta {
+  position: relative;
+  padding: 100px 0;
+  background: #0b0f1a;
+  color: #ffffff;
+}
+
+.dncl-about-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(30, 64, 255, 0.25),
+    transparent 60%
+  );
+}
+
+.dncl-about-cta-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3vw, 32px);
+
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+@media (max-width: 1023px) {
+  .dncl-about-cta-container {
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 5vw, 50px);
+    text-align: center;
+  }
+}
+
+/* LEFT CTA */
+.dncl-about-cta-left h6 {
+  font-size: 13px;
+  color: #7da0ff;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.dncl-about-cta-left h2 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 22px;
+}
+
+.dncl-about-cta-left h2 span {
+  color: #4f7cff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.dncl-about-cta-left p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #cfd6ff;
+  margin-bottom: 26px;
+}
+
+.dncl-about-cta-btn {
+  padding: 14px 34px;
+  background: #1e40ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dncl-about-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(30, 64, 255, 0.4);
+}
+
+/* RIGHT CTA LIST */
+.dncl-about-cta-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dncl-about-cta-right li {
+  font-size: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e5e9ff;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+  .dncl-about-grid,
+  .dncl-about-cta-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .dncl-about-stats {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+
+/* ===============================
+   MAKE IN INDIA BANNER SECTION
+================================ */
+
+.dncl-about-makeindia {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.dncl-about-makeindia-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.dncl-about-makeindia img {
+  width: 50%;
+  max-height: 150px;
+  object-fit: contain;   /* no cutoff */
+  display: block;
+  margin: auto;
+}
+
+
+
+@media (max-width: 768px) {
+  .dncl-about-makeindia img {
+    max-height: 180px;
+  }
+}

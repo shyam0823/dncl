@@ -1,0 +1,105 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1440px;
+  margin: auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 42px;
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-item:hover {
+  color: #e53935;
+}
+
+/* Normal dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  background: #fff;
+  border: 1px solid #eee;
+  min-width: 200px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Mega Menu */
+.mega-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: -100px;
+  width: 700px;
+  background: #fff;
+  padding: 24px;
+  border: 1px solid #eee;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mega-menu h4 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #e53935;
+}
+
+.mega-menu a {
+  display: block;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown:hover .mega-menu {
+  display: grid;
+}
+
+/* CTA */
+.cta {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cta:hover {
+  background: #c62828;
+}

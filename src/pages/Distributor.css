@@ -1,0 +1,160 @@
+/* ================= COMMON ================= */
+
+.page-offset {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.text-dark {
+  color: #111;
+}
+
+.text-blue {
+  color: #1e40ff;
+}
+
+/* ================= WRAPPER ================= */
+
+.distributor-wrapper {
+  background: #ffffff;
+}
+
+/* ================= LAYOUT ================= */
+
+.distributor-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 32px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.distributor-left h1 {
+  font-size: 46px;
+  margin-bottom: 18px;
+}
+
+.distributor-left h1 span {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.distributor-desc {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.distributor-info h3 {
+  font-size: 18px;
+  color: #1e40ff;
+  margin-bottom: 14px;
+}
+
+.distributor-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.distributor-info li {
+  font-size: 15.5px;
+  color: #111;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.distributor-info li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #1e40ff;
+}
+
+/* ================= FORM CARD ================= */
+
+.distributor-form-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+}
+
+.distributor-form-card h2 {
+  margin-bottom: 26px;
+  color: #111;
+}
+
+/* ================= FORM ================= */
+
+.distributor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.distributor-form input,
+.distributor-form select,
+.distributor-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14.5px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.distributor-form input:focus,
+.distributor-form select:focus,
+.distributor-form textarea:focus {
+  outline: none;
+  border-color: #1e40ff;
+}
+
+/* ================= BUTTON ================= */
+
+.distributor-form button {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 12px 34px;
+  background: #1e40ff;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14.5px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.distributor-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(30, 64, 255, 0.35);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .distributor-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .distributor-form-card {
+    margin-top: 40px;
+  }
+}

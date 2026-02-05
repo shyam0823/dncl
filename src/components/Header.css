@@ -1,0 +1,365 @@
+/* ================= SMART AUTO HEADER ================= */
+
+.dncl-header{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+
+  background:#ffffff;
+
+  transition: transform 0.32s ease;
+}
+
+/* hidden */
+.dncl-header.hide{
+  transform: translateY(-120%);
+}
+
+/* visible */
+.dncl-header.show{
+  transform: translateY(0);
+}
+
+.dncl-header{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+
+  background: transparent;   /* KEY LINE */
+  transition: transform 0.32s ease;
+}
+
+
+/* ================= FORCE HEADER TEXT WHITE ================= */
+.dncl-header,
+.dncl-header .nav-link {
+  color: #0b1220 !important;
+}
+
+
+
+.dncl-header-container {
+  max-width: 1400px;
+  margin: auto;
+  padding-inline: clamp(12px, 3vw, 32px);
+  padding-block: 12px;
+  display: flex;
+  align-items: center;
+}
+
+
+/* ================= GLASS HEADER ================= */
+
+
+
+
+/* ================= INNER HEADER ================= */
+
+
+
+.inner-header .nav-link {
+  color: #111;
+}
+
+.inner-header .nav-link:hover {
+  color: var(--dncl-primary);
+}
+
+
+/* ================= LOGO ================= */
+
+.logo-home {
+  height: 72px;
+}
+
+.logo-inner {
+  height: 62px;
+}
+
+/* ================= NAV ================= */
+
+.dncl-nav {
+  margin-left: clamp(20px, 3vw, 40px);   /* control distance from logo */
+  margin-right: auto;
+  display: flex;
+  gap: clamp(16px, 2vw, 32px);
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  flex-wrap: wrap; /* allow wrapping to avoid overflow on narrow screens */
+}
+
+
+.dncl-header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+
+.madein-badge{
+  height:72px;
+  width:auto; 
+  object-fit:contain;
+  margin-left:-20px; 
+}
+
+.dncl-header-btn{
+  margin-right: 0;
+}
+
+.dncl-header-btn{
+  margin-right: 70px;   /* increase this value to move more left */
+}
+
+
+.home-header .nav-link {
+  color: #ffffff;
+}
+
+.inner-header .nav-link {
+  color: #222;
+}
+
+.nav-link {
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  position:relative;
+  transition:color .25s;
+}
+
+/* underline */
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;        /* distance from text */
+  width:0%;
+  height:3px;
+  background:#1e40ff;
+  border-radius:4px;
+  transition:width .28s ease;
+}
+
+/* hover effect */
+.nav-link:hover::after{
+  width:100%;
+}
+
+.nav-link:hover {
+  color: #1e40ff;
+}
+
+/* ================= DROPDOWN ================= */
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.15);
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f5ff;
+  color: #1e40ff;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ================= CTA ================= */
+.dncl-header-btn {
+  background: transparent;
+  color: inherit !important;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  transition: color .25s;
+}
+
+/* underline */
+.dncl-header-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #1e40ff;
+  border-radius: 4px;
+  transition: width .28s ease;
+}
+
+/* hover effect */
+.dncl-header-btn:hover::after {
+  width: 100%;
+}
+
+.dncl-header-btn:hover {
+  color: #1e40ff;
+}
+
+.dncl-header-btn:active {
+  transform: scale(0.98);
+}
+
+
+
+/* Mobile menu button - hidden on desktop */
+.mobile-menu-btn {
+  display: none;
+}
+
+/* ================= MOBILE MENU ================= */
+@media (max-width: 900px) {
+  .dncl-nav {
+    display: none; /* hide desktop nav */
+  }
+
+  /* Mobile menu button */
+  .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  /* Mobile menu */
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .mobile-nav.active {
+    display: flex;
+  }
+
+  .mobile-nav .nav-link {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+  }
+
+  .mobile-nav .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .logo-inner {
+    height: 48px;
+  }
+}
+
+  /* Mobile menu */
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  .mobile-nav.active {
+    display: flex;
+  }
+
+  .mobile-nav .nav-link {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .mobile-nav .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .logo-inner {
+    height: 48px;
+  }
+
+
+
+/* ================= DROPDOWN COLOR FIX ================= */
+
+/* Dropdown container */
+.dncl-header .dropdown-menu {
+  background: #ffffff;
+}
+
+/* Dropdown links */
+.dncl-header .dropdown-menu a {
+  color: #111 !important;
+}
+
+/* Hover state */
+.dncl-header .dropdown-menu a:hover {
+  background: #f1f5ff;
+  color: var(--dncl-primary) !important;
+}
+
+
+.dncl-footer-badge {
+  display: flex;
+  justify-content: center;  /* ✅ CENTER LOGO */
+  margin-top: 10px;
+}
+
+.dncl-footer-badge img {
+  max-width: 160px;
+  height: auto;
+}
+
+
+.dncl-logo:focus-visible{
+  outline:none;
+}
