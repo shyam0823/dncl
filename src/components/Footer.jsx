@@ -68,62 +68,57 @@ export default function Footer() {
   </div>
 </div>
 
-        {/* ================= SUPPORT ================= */}
-     <div className="dncl-footer-col dncl-footer-support">
+    <div className="dncl-footer-col dncl-footer-support">
   <h5>Support</h5>
 
-  <a href="/support#raise-ticket" className="dncl-footer-link">
+  <Link to="/support#raise-ticket" className="dncl-footer-link">
     Support Center
-  </a>
+  </Link>
 
-  <a href="/support#raise-ticket" className="dncl-footer-link">
+  <Link to="/support#raise-ticket" className="dncl-footer-link">
     Order Status
-  </a>
+  </Link>
 
-  <a href="/book-demo" className="dncl-footer-link">
+  <Link to="/book-demo" className="dncl-footer-link">
     Book a Demo
-  </a>
+  </Link>
 
   <div className="dncl-footer-contact-item">
     <Mail size={18} />
-   <a
-  href="mailto:support@dncltech.com"
-  className="dncl-footer-link dncl-footer-email"
->
-  support@dncltech.com
-</a>
-
+    <a href="mailto:support@dncltech.com">
+      support@dncltech.com
+    </a>
   </div>
 </div>
-
 
 
 {/* ================= ABOUT ================= */}
 <div className="dncl-footer-col dncl-footer-about">
   <h5>About</h5>
 
-  <a href="/about" className="dncl-footer-link">
+  <Link to="/about" className="dncl-footer-link">
     About DNCL
-  </a>
+  </Link>
 
-  <a href="/careers" className="dncl-footer-link">
+  <Link to="/careers" className="dncl-footer-link">
     Careers
-  </a>
+  </Link>
 </div>
+
 
         {/* ================= RIGHT ================= */}
         <div className="dncl-footer-col dncl-footer-follow">
           <h5>Follow Us</h5>
 
           <div className="dncl-footer-social">
-            <a href="#"><Facebook size={18} /></a>
+            <a href="https://www.facebook.com/dncltechnologies"><Facebook size={18} /></a>
             <a href="https://www.linkedin.com/company/dncl-tech/" target="_blank" rel="noreferrer">
               <Linkedin size={18} />
             </a>
             <a href="https://youtube.com/@dncltech5766" target="_blank" rel="noreferrer">
               <Youtube size={18} />
             </a>
-            <a href="https://www.instagram.com/dncl_technologies/" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/dncltechnologies?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer">
               <Instagram size={18} />
             </a>
           </div>
