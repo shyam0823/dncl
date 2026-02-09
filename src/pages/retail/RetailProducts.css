@@ -52,3 +52,96 @@
   padding: 0;
   background: #f7f9fc;
 }
+
+
+/* =====================================
+   RESPONSIVE FIX — RETAIL PAGE
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .retail-page {
+    padding-block: 90px 50px;
+    padding-inline: 32px;
+  }
+
+  .retail-page h1 {
+    font-size: 36px;
+  }
+
+  .retail-page p {
+    font-size: 17px;
+    margin-bottom: 40px;
+  }
+
+  .retail-grid {
+    gap: 26px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .retail-page {
+    padding-block: 80px 44px;
+    padding-inline: 24px;
+    text-align: center;
+  }
+
+  .retail-page h1 {
+    font-size: 30px;
+  }
+
+  .retail-page p {
+    font-size: 16px;
+    margin-bottom: 36px;
+  }
+
+  .retail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .retail-card {
+    padding: 26px;
+    font-size: 16px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .retail-page {
+    padding-block: 60px 36px;
+    padding-inline: 16px;
+  }
+
+  .retail-page h1 {
+    font-size: 24px;
+  }
+
+  .retail-page p {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .retail-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .retail-card {
+    padding: 20px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .retail-page h1 {
+    font-size: 22px;
+  }
+
+  .retail-card {
+    padding: 18px;
+  }
+}

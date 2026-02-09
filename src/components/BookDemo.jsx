@@ -1,13 +1,22 @@
+import { useEffect, useState } from "react";
 import "./BookDemo.css";
 
 export default function BookDemo() {
+
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    // trigger animation after mount
+    setAnimate(true);
+  }, []);
+
   return (
     <section className="bookdemo-section" id="book-demo">
       <div className="bookdemo-wrapper">
         <div className="bookdemo-container">
 
           {/* LEFT – FORM */}
-          <div className="bookdemo-form">
+          <div className={`bookdemo-form ${animate ? "slide-in" : ""}`}>
 
             <h2 className="bookdemo-title">
               Book A <span className="bookdemo-badge">FREE</span> Demo
@@ -43,7 +52,7 @@ export default function BookDemo() {
 
           {/* RIGHT – IMAGE */}
           <div className="bookdemo-image">
-            <img src="/Booking.png" alt="Book Demo" />
+            <img src="/Booking1.png" alt="Book Demo" />
           </div>
 
         </div>

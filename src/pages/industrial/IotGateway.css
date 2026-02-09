@@ -1,0 +1,303 @@
+/* ================= SECTION ================= */
+.bong-section {
+  background: #d4e9ff;
+  padding: 120px clamp(24px, 4vw, 60px);
+}
+
+/* ================= TITLE ================= */
+.bong-title {
+  text-align: center;
+  font-size: 46px;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
+.bong-section .title-black {
+  color: #111;
+}
+
+.bong-section .title-blue {
+  color: #1e40ff;
+}
+
+/* ================= GRID (2 x 2) ================= */
+.bong-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* ================= CARD ================= */
+.bong-card {
+  position: relative;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background: #ffffff !important;
+  text-decoration: none;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  isolation: isolate;
+}
+
+.bong-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+}
+
+/* ================= IMAGE ================= */
+.bong-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 22px;
+
+  background: #ffffff !important;
+  transition: transform 0.35s ease;
+}
+
+.bong-card:hover .bong-image {
+  transform: scale(1.04);
+}
+
+/* ================= BLUE GLASS OVERLAY ================= */
+.bong-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+
+  background: rgba(0, 86, 155, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  pointer-events: none;
+}
+
+.bong-card:hover .bong-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= TEXT ================= */
+.bong-model {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff !important;
+}
+
+.bong-subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #e8f1ff !important;
+}
+
+/* ================= HARD RESET (BONG ONLY) ================= */
+.bong-card,
+.bong-card:hover,
+.bong-card:focus,
+.bong-card:active {
+  background: #ffffff !important;
+}
+
+.bong-image {
+  background: #ffffff !important;
+}
+
+/* SAFE RESET – excludes overlay */
+.bong-card > *:not(.bong-overlay) {
+  background-color: transparent !important;
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .bong-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .bong-section {
+    padding: 64px 16px;
+  }
+
+  .bong-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .bong-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bong-card {
+    height: auto;
+    aspect-ratio: 16 / 10;     /* 🔥 clean mobile ratio */
+    border-radius: 14px;
+  }
+
+  .bong-image {
+    padding: 14px;
+    object-fit: contain;
+  }
+
+  /* Disable hover movement on touch */
+  .bong-card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .bong-card:hover .bong-image {
+    transform: none;
+  }
+
+  /* Overlay always visible on mobile */
+  .bong-overlay {
+    opacity: 1;
+    transform: none;
+    height: 44%;
+  }
+
+  .bong-model {
+    font-size: 15px;
+  }
+
+  .bong-subtitle {
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .bong-section {
+    padding: 88px 24px;
+  }
+
+  .bong-title {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+
+  .bong-wrapper {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .bong-card {
+    height: 300px;
+  }
+
+  .bong-image {
+    padding: 18px;
+  }
+
+  .bong-overlay {
+    height: 48%;
+  }
+}
+
+
+
+@media (min-width: 1025px) {
+
+  .bong-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bong-card {
+    height: 340px;
+  }
+
+  .bong-title {
+    font-size: 46px;
+  }
+}
+
+
+
+/* ===============================
+   MOBILE FIX — IOT GATEWAY
+=============================== */
+@media (max-width: 600px) {
+
+  /* Section spacing */
+  .bong-section {
+    padding: 56px 16px;
+  }
+
+  .bong-title {
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+
+  /* Card layout */
+  .bong-wrapper {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .bong-card {
+    height: auto;
+    aspect-ratio: 4 / 3;          /* 🔥 product-friendly ratio */
+    border-radius: 14px;
+  }
+
+  /* Image must dominate */
+  .bong-image {
+    padding: 12px;
+    object-fit: contain;
+  }
+
+  /* Overlay — FIXED POSITION, SHORT */
+  .bong-overlay {
+    height: 32%;                  /* 🔥 not 50% */
+    opacity: 1;
+    transform: none;
+
+    backdrop-filter: blur(4px);
+    background: rgba(0, 86, 155, 0.65);
+
+    justify-content: center;
+  }
+
+  /* Text sizing */
+  .bong-model {
+    font-size: 14px;
+  }
+
+  .bong-subtitle {
+    font-size: 12px;
+  }
+
+  /* Kill hover motion on touch */
+  .bong-card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .bong-card:hover .bong-image {
+    transform: none;
+  }
+}

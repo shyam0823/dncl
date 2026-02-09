@@ -4,10 +4,13 @@ import "./DataLogger.css";
 
 export default function DataLogger() {
   return (
-    <section className="datalogger-wrapper">
-      <h1>MultiFunctional Data Logger (PLC)</h1>
+    <section className="datalogger-section">
+      <h2 className="datalogger-title">
+        <span className="title-black">MultiFunctional</span>{" "}
+        <span className="title-blue">Data Logger (PLC)</span>
+      </h2>
 
-      <div className="datalogger-grid">
+      <div className="datalogger-wrapper">
         {DataLoggerData.map((item) => (
           <Link
             key={item.id}
@@ -15,20 +18,12 @@ export default function DataLogger() {
             className="datalogger-card"
           >
             {/* IMAGE */}
-            <div className="datalogger-image-wrapper">
-              <img src={item.image} alt={item.title} />
-            </div>
+            <img src={item.image} alt={item.title} />
 
-            {/* INFO */}
-            <div className="datalogger-info">
-              <div className="datalogger-model">
-                Model No: <strong>{item.title}</strong>
-              </div>
-
-              <div className="datalogger-desc">
-                {item.subtitle}
-              </div>
-
+            {/* OVERLAY */}
+            <div className="datalogger-overlay">
+              <p className="datalogger-model">{item.title}</p>
+              <p className="datalogger-subtitle">{item.subtitle}</p>
             </div>
           </Link>
         ))}

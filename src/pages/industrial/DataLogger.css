@@ -1,160 +1,164 @@
-/* ================= WRAPPER ================= */
-.datalogger-wrapper {
-  padding: 120px 40px 60px;
-  background: #f1f0f0;
-  color: #000000;
+/* ================= SECTION ================= */
+.datalogger-section {
+  background: #d4e9ff;
+  padding: 120px clamp(24px, 4vw, 60px);
 }
 
-.datalogger-wrapper h1 {
-  font-size: 36px;
+/* ================= TITLE ================= */
+.datalogger-title {
+  text-align: center;
+  font-size: 46px;
   font-weight: 700;
-  color: #000000;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
+
+.title-black { color: #111; }
+.title-blue { color: #1e40ff; }
 
 /* ================= GRID ================= */
-.datalogger-grid {
+.datalogger-wrapper {
+  max-width: 1440px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(24px, 3vw, 28px);
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 clamp(20px, 3vw, 40px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
 }
 
 /* ================= CARD ================= */
 .datalogger-card {
-  background: #272727;
-  border-radius: 28px;
-  padding: 24px;
+  position: relative;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
   text-decoration: none;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-
-  text-align: center;
-
-  border: 1px solid #0a0a0a;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
-
-  color: #111111;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
-/* ================= HOVER ================= */
-.datalogger-card:hover,
-.datalogger-card:focus-within {
-  background: #050505;
-  color: #d4d6d6;
-  transform: translateY(-6px);
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+/* hover ONLY for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .datalogger-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+  }
+
+  .datalogger-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .datalogger-card:hover .datalogger-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ================= IMAGE ================= */
-.datalogger-image-wrapper {
+.datalogger-card img {
   width: 100%;
-  min-height: 240px;
-  background: #0a0a0a;
-  border-radius: 22px;
-  padding: 28px;
-  margin-bottom: 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: background 0.25s ease, box-shadow 0.25s ease;
-}
-
-.datalogger-image-wrapper img {
-  max-width: 200px;
-  max-height: 200px;
+  height: 100%;
   object-fit: contain;
+  padding: 22px;
+  background: #ffffff;
+  transition: transform .35s ease;
 }
 
-/* image hover */
-.datalogger-card:hover .datalogger-image-wrapper {
-  background: #8a8787;
-  box-shadow: inset 0 0 0 1px #222;
-}
-
-/* ================= INFO ================= */
-.datalogger-info {
-  padding: 6px 4px;
+/* ================= OVERLAY (DESKTOP/TABLET) ================= */
+.datalogger-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 50%;
+  background: rgba(0,86,155,.55);
+  backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .35s ease, transform .35s ease;
+  pointer-events: none;
 }
 
 /* ================= TEXT ================= */
 .datalogger-model {
   font-size: 16px;
   font-weight: 700;
-  color: #f0eeee;
-  margin-bottom: 6px;
-  transition: color 0.25s ease;
+  color: #fff;
 }
 
-.datalogger-desc {
-  font-size: 14px;
-  font-weight: 600;
-  color: #f0eeee;
-  margin-bottom: 16px;
-  transition: color 0.25s ease;
-}
-
-/* ================= READ MORE ================= */
-.read-more {
-  margin-top: auto;
+.datalogger-subtitle {
   font-size: 13px;
-  font-weight: 700;
-  color: #0b6efd;
-  letter-spacing: 0.6px;
-  cursor: pointer;
-  transition: color 0.25s ease;
+  color: #e8f1ff;
+  margin-top: 6px;
 }
 
-.read-more span {
-  margin-left: 6px;
-  display: inline-block;
-  transition: transform 0.25s ease;
-}
-
-/* ================= FORCE TEXT CHANGE ON HOVER ================= */
-.datalogger-card:hover .datalogger-model,
-.datalogger-card:hover .datalogger-desc,
-.datalogger-card:hover .read-more {
-  color: #ffffff !important;
-}
-
-.datalogger-card:hover .read-more span {
-  transform: translateX(4px);
-}
-
-/* ================= OPTIONAL MODEL CARD ================= */
-.model-card {
-  height: 520px;
-  background: #a9abad;
-  border-radius: 22px;
-  padding: 24px;
-}
-
-/* ================= RESPONSIVE ================= */
+/* ================= TABLET ================= */
 @media (max-width: 1024px) {
-  .datalogger-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .datalogger-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .datalogger-card {
+    height: 300px;
+  }
+
+  .datalogger-overlay {
+    opacity: 1;
+    transform: none;
+    height: 42%;
   }
 }
 
+/* ================= MOBILE (FINAL + CLEAN) ================= */
 @media (max-width: 600px) {
-  .datalogger-grid {
+
+  .datalogger-section {
+    padding: 44px 14px;
+  }
+
+  .datalogger-title {
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+
+  .datalogger-wrapper {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* CARD STACKED */
+  .datalogger-card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border-radius: 14px;
+  }
+
+  /* IMAGE TOP */
+  .datalogger-card img {
+    height: 180px;
+    padding: 12px;
+    object-fit: contain;
+  }
+
+  /* LABEL BOTTOM (NO ABSOLUTE, NO HOVER) */
+  .datalogger-overlay {
+    position: relative;
+    height: auto;
+    padding: 10px 12px;
+    background: #0b5fa5;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .datalogger-model {
+    font-size: 13px;
+  }
+
+  .datalogger-subtitle {
+    font-size: 11px;
   }
 }

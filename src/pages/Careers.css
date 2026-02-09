@@ -1,0 +1,213 @@
+/* PAGE WRAPPER */
+.dncl-careers {
+  background: #d4e9ff;
+}
+
+/* HERO */
+.dncl-careers-hero {
+  position: relative;
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+}
+
+.dncl-careers-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(59, 59, 59, 0.55);
+}
+
+.dncl-careers-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.dncl-careers-content h1 {
+  font-size: 46px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.dncl-careers-content p {
+  font-size: 18px;
+  max-width: 720px;
+}
+
+/* BODY */
+.dncl-careers-body {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 32px;
+  text-align: center;
+}
+
+.dncl-careers-body h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* GRID */
+.dncl-careers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.career-card {
+  background: #f5f7fb;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.career-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.career-card p {
+  font-size: 15px;
+  color: #555;
+}
+
+/* CTA */
+.dncl-careers-cta p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.dncl-careers-cta a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e40ff;
+  text-decoration: none;
+}
+
+.dncl-careers-cta a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .dncl-careers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dncl-careers-content h1 {
+    font-size: 34px;
+  }
+}
+
+
+/* =====================================
+   CAREERS — RESPONSIVE POLISH
+===================================== */
+
+/* TABLET */
+@media (max-width: 900px) {
+
+  /* HERO */
+  .dncl-careers-hero {
+    height: 300px;              /* 🔥 reduced */
+  }
+
+  .dncl-careers-content h1 {
+    font-size: 32px;
+  }
+
+  .dncl-careers-content p {
+    font-size: 16px;
+  }
+
+  /* BODY */
+  .dncl-careers-body {
+    padding: 64px 24px;
+  }
+
+  .dncl-careers-body h2 {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  /* GRID */
+  .dncl-careers-grid {
+    gap: 22px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  /* HERO */
+  .dncl-careers-hero {
+    height: 220px;              /* 🔥 key fix */
+  }
+
+  .dncl-careers-content h1 {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  .dncl-careers-content p {
+    font-size: 14px;
+  }
+
+  /* BODY */
+  .dncl-careers-body {
+    padding: 48px 16px;
+  }
+
+  .dncl-careers-body h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  /* CARDS */
+  .career-card {
+    padding: 20px;              /* 🔥 tighter */
+    border-radius: 12px;
+  }
+
+  .career-card h3 {
+    font-size: 18px;
+  }
+
+  .career-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .dncl-careers-cta {
+    margin-top: 40px;
+  }
+
+  .dncl-careers-cta p {
+    font-size: 14px;
+  }
+
+  .dncl-careers-cta a {
+    font-size: 16px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+
+  .dncl-careers-content h1 {
+    font-size: 22px;
+  }
+
+  .dncl-careers-body h2 {
+    font-size: 22px;
+  }
+}

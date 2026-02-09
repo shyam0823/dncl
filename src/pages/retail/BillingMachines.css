@@ -1,101 +1,232 @@
-/* ===== Retail Wrapper ===== */
-.retail-wrapper {
-  padding: 120px 40px 60px;
-  background: #f3f1f1;
-  color: #000000;
+/* ================= SECTION ================= */
+.billing-section {
+  background: #d4e9ff;
+  padding: 120px clamp(24px, 4vw, 60px);
 }
 
-.retail-wrapper h1 {
-  font-size: 36px;
+/* ================= TITLE ================= */
+.billing-title {
+  text-align: center;
+  font-size: 46px;
   font-weight: 700;
-  color: #0a0a0a;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
-/* ===== Grid ===== */
-.retail-grid {
+.title-black {
+  color: #111;
+}
+
+.title-blue {
+  color: #1e40ff;
+}
+
+/* ================= GRID ================= */
+.billing-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  justify-items: left;
+  grid-template-columns: 1fr;   /* ✅ SINGLE COLUMN */
+  place-items: center;          /* ✅ PERFECT CENTER */
 }
 
-/* ===== Card (FieldIO-style) ===== */
-.retail-card {
-  background: #363535;
-  border-radius: 22px;
-  padding: 22px;
-  text-decoration: none;
-  color: #f8f4f4;
 
+/* ================= CARD ================= */
+.billing-card {
+  position: relative;
   width: 100%;
-  max-width: 320px;
-  min-height: 320px;
+  max-width: 720px; /* same visual weight as POS */
+  height: 340px;
 
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid #333;
+  border-radius: 16px;
+  overflow: hidden;
 
-  cursor: pointer;
+  background: #ffffff !important;
+  text-decoration: none;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  isolation: isolate; /* 🔥 CRITICAL (same as POS) */
+}
+
+.billing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+}
+
+
+/* ================= IMAGE ================= */
+.billing-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 22px;
+
+  background: #ffffff !important;
+  transition: transform 0.35s ease;
+
+  position: relative;
+  z-index: 1;
+}
+
+.billing-card:hover img {
+  transform: scale(1.04);
+}
+
+
+/* ================= BLUE GLASS OVERLAY ================= */
+.billing-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+
+  background: rgba(0, 86, 155, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;     /* ✅ CENTER TEXT */
+  justify-content: center; /* ✅ CENTER TEXT */
+  text-align: center;
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  z-index: 2;
+  pointer-events: none;
 }
 
-.retail-card:focus-visible { outline: 3px solid rgba(0, 229, 255, 0.08); outline-offset: 3px; }
-
-/* image */
-.retail-image-wrapper {
-  width: 100%;
-  min-height: 180px;
-  background: #050505;
-  border-radius: 18px;
-  padding: 18px;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.25s ease;
-  overflow: hidden;
+.billing-card:hover .billing-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.retail-image-wrapper img { max-width: 100%; height: 100%; object-fit: contain; }
 
-/* hover */
-.retail-card:hover,
-.retail-card:focus-visible {
-  background: #1e1e1e;
+/* ================= TEXT ================= */
+.billing-model {
+  font-size: 16px;
+  font-weight: 700;
   color: #ffffff;
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
 }
 
-.retail-card:hover .retail-image-wrapper { background: #8a8787; }
+.billing-subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #e8f1ff;
+}
 
-/* content */
-.retail-content { padding: 20px 24px 28px; }
+/* ================= HARD RESET (MATCH POS EXACTLY) ================= */
+/* BLUE ONLY FOR OVERLAY */
+.billing-overlay {
+  background: rgba(0, 86, 155, 0.55) !important;
+}
 
-.retail-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #f9faf6; transition: color 0.25s ease; }
-.retail-content p { font-size: 15px; color: #d4cece; margin-bottom: 16px; transition: color 0.25s ease; }
-
-.read-more { font-size: 13px; font-weight: 700; color: #838282; letter-spacing: 0.5px; transition: color 0.25s ease; }
-.read-more span { margin-left: 4px; transition: transform 0.25s ease; display:inline-block; }
-
-.retail-card:hover .read-more { color: #ffffff; }
-.retail-card:hover .read-more span { transform: translateX(6px); }
-
-/* remove default focus outline for mice interactions */
-.retail-card:focus { outline: none; }
+/* TEXT SHOULD BE WHITE, NO BACKGROUND */
+.billing-overlay .billing-model,
+.billing-overlay .billing-subtitle {
+  color: #ffffff !important;
+  background: transparent !important;
+}
 
 
 
-/* 🔥 MODEL NAME BLUE ON HOVER */
-.retail-card:hover .retail-content h3 {
-  color: #00e5ff;
+@media (max-width: 600px) {
+
+  .billing-section {
+    padding: 64px 16px;
+  }
+
+  .billing-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .billing-card {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;   /* 🔥 perfect mobile ratio */
+    border-radius: 14px;
+  }
+
+  .billing-card img {
+    padding: 14px;
+    object-fit: contain;
+  }
+
+  /* Disable hover effects on touch */
+  .billing-card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .billing-card:hover img {
+    transform: none;
+  }
+
+  /* Overlay always visible on mobile */
+  .billing-overlay {
+    opacity: 1;
+    transform: none;
+    height: 44%;
+  }
+
+  .billing-model {
+    font-size: 15px;
+  }
+
+  .billing-subtitle {
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .billing-section {
+    padding: 88px 24px;
+  }
+
+  .billing-title {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+
+  .billing-card {
+    max-width: 560px;
+    height: 300px;
+  }
+
+  .billing-card img {
+    padding: 18px;
+  }
+
+  .billing-overlay {
+    height: 48%;
+  }
+
+  .billing-model {
+    font-size: 15px;
+  }
+
+  .billing-subtitle {
+    font-size: 13px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+
+  .billing-card {
+    max-width: 720px;
+    height: 340px;
+  }
+
+  .billing-title {
+    font-size: 46px;
+  }
 }

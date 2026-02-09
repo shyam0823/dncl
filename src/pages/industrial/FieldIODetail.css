@@ -61,15 +61,18 @@
   color: #000000;
 }
 
+
 /* ===============================
-   RIGHT CONTENT
+   RIGHT SIDE SMALL TITLE (MODEL STYLE)
 ================================ */
-.fieldio-detail-page .fieldio-info h1 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #0b3c5d;
-  margin-bottom: 24px;
+.fieldio-detail-page .fieldio-small-title {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
 }
+
 
 /* SMALL UI / MQTT IMAGE */
 .fieldio-detail-page .fieldio-info img {
@@ -237,6 +240,7 @@
 ================================ */
 @media (max-width: 1023px) {
   .fieldio-detail-page .fieldio-top {
+     align-items: flex-start;
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -245,5 +249,319 @@
 @media (max-width: 900px) {
   .fieldio-detail-page .fieldio-info h1 {
     font-size: 28px;
+  }
+}
+
+
+/* ===============================
+   RIGHT SIDE IMAGE CARD (MATCH LEFT)
+================================ */
+.fieldio-detail-page .fieldio-info .fieldio-ui-card {
+  background: #f5f7fb;
+  padding: 32px;
+  border-radius: 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12); /* same as left */
+  max-width: 520px;
+}
+
+.fieldio-detail-page .fieldio-info .fieldio-ui-card img {
+  width: 100%;
+  max-width: 420px;   /* ✅ SAME AS LEFT IMAGE */
+  height: auto;
+  object-fit: contain;
+}
+
+
+.fieldio-detail-page .fieldio-ui-card {
+  padding: 24px;              /* 🔽 32 → 24 */
+  max-width: 520px;
+}
+
+
+.fieldio-detail-page .fieldio-ui-card img {
+  max-width: 420px;
+  max-height: 240px;          /* ✅ IMPORTANT */
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+/* =====================================
+   RESPONSIVE FIX — FIELDIO DETAIL PAGE
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .fieldio-detail-page {
+    padding: 50px 24px;
+  }
+
+  .fieldio-detail-page .fieldio-top {
+    gap: 36px;
+  }
+
+  .fieldio-detail-page .fieldio-image-box {
+    padding: 24px;
+  }
+
+  .fieldio-detail-page .fieldio-image-box img {
+    max-width: 360px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .fieldio-detail-page {
+    margin-top: 70px;
+    padding: 40px 20px;
+  }
+
+  .fieldio-detail-page .fieldio-top {
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: left;
+  }
+
+  .fieldio-detail-page .fieldio-image-box,
+  .fieldio-detail-page .fieldio-ui-card {
+    max-width: 100%;
+  }
+
+  .fieldio-detail-page .tabs {
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .fieldio-detail-page table {
+    font-size: 14px;
+  }
+
+  .fieldio-detail-page td {
+    padding: 14px 16px;
+  }
+
+  .fieldio-detail-page .download-actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .fieldio-detail-page .download-actions a {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .fieldio-detail-page {
+    margin-top: 60px;
+    padding: 32px 16px;
+  }
+
+  .fieldio-detail-page .fieldio-image-box {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .fieldio-detail-page .fieldio-image-box img {
+    max-width: 300px;
+  }
+
+  .fieldio-detail-page .tabs {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .fieldio-detail-page .tabs button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .fieldio-detail-page table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .fieldio-detail-page .feature-list li {
+    font-size: 14px;
+  }
+
+  .fieldio-detail-page .model-card {
+    min-height: 380px;
+    padding: 20px;
+  }
+
+  .fieldio-detail-page .model-viewer {
+    min-height: 320px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .fieldio-detail-page .fieldio-image-box img {
+    max-width: 260px;
+  }
+
+  .fieldio-detail-page .model-section h2 {
+    font-size: 22px;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+
+  .fieldio-detail-page {
+    margin-top: 56px;
+    padding: 28px 14px;
+  }
+
+  /* TOP SECTION */
+  .fieldio-detail-page .fieldio-top {
+    gap: 26px;
+  }
+
+  /* LEFT IMAGE CARD */
+  .fieldio-detail-page .fieldio-image-box {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .fieldio-detail-page .fieldio-image-box img {
+    max-width: 260px;
+  }
+
+  .fieldio-detail-page .fieldio-model {
+    font-size: 13px;
+  }
+
+  /* RIGHT UI CARD */
+  .fieldio-detail-page .fieldio-ui-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .fieldio-detail-page .fieldio-ui-card img {
+    max-width: 260px;
+    max-height: 180px;
+  }
+
+  .fieldio-detail-page .fieldio-small-title {
+    font-size: 13px;
+  }
+
+  /* TABS */
+  .fieldio-detail-page .tabs {
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .fieldio-detail-page .tabs button {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  /* TABLE */
+  .fieldio-detail-page table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .fieldio-detail-page td {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  /* FEATURES */
+  .fieldio-detail-page .feature-list li {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  /* DOWNLOAD */
+  .fieldio-detail-page .download-actions {
+    gap: 10px;
+  }
+
+  /* 3D MODEL */
+  .fieldio-detail-page .model-section {
+    margin-top: 40px;
+  }
+
+  .fieldio-detail-page .model-section h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .fieldio-detail-page .model-card {
+    min-height: 300px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .fieldio-detail-page .model-viewer {
+    min-height: 260px;
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+
+  .fieldio-detail-page {
+    padding: 44px 22px;
+  }
+
+  .fieldio-detail-page .fieldio-top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .fieldio-detail-page .fieldio-image-box,
+  .fieldio-detail-page .fieldio-ui-card {
+    max-width: 100%;
+  }
+
+  .fieldio-detail-page .fieldio-image-box img,
+  .fieldio-detail-page .fieldio-ui-card img {
+    max-width: 320px;
+  }
+
+  .fieldio-detail-page .tabs {
+    gap: 24px;
+  }
+
+  .fieldio-detail-page td {
+    font-size: 15px;
+  }
+
+  .fieldio-detail-page .model-card {
+    min-height: 420px;
+  }
+
+  .fieldio-detail-page .model-viewer {
+    min-height: 360px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+
+  .fieldio-detail-page .fieldio-top {
+    grid-template-columns: minmax(420px, 520px) 1fr;
+  }
+
+  .fieldio-detail-page .model-card {
+    min-height: 520px;
   }
 }

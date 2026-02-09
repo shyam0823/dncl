@@ -1,7 +1,12 @@
 /* ================= COMMON ================= */
 
+.distributor-body-gap {
+  padding-top: 100px;        /* header height */
+  background: #d4e9ff;       /* ADD THIS */
+}
+
 .page-offset {
-  padding-top: 120px;
+  padding-top: 0px;
   padding-bottom: 100px;
 }
 
@@ -16,7 +21,7 @@
 /* ================= WRAPPER ================= */
 
 .distributor-wrapper {
-  background: #ffffff;
+  background: #d4e9ff;
 }
 
 /* ================= LAYOUT ================= */
@@ -140,7 +145,6 @@
 
 .distributor-form button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(30, 64, 255, 0.35);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -156,5 +160,184 @@
 
   .distributor-form-card {
     margin-top: 40px;
+  }
+}
+
+
+
+/* =====================================
+   RESPONSIVE FIX — DISTRIBUTOR PAGE
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .page-offset {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+
+  .distributor-container {
+    padding: 0 24px;
+    gap: 50px;
+  }
+
+  .distributor-left h1 {
+    font-size: 38px;
+  }
+
+  .distributor-desc {
+    font-size: 16px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .page-offset {
+    padding-top: 90px;
+    padding-bottom: 70px;
+  }
+
+  .distributor-container {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .distributor-left h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .distributor-desc {
+    text-align: center;
+  }
+
+  .distributor-info {
+    text-align: left;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .distributor-form-card {
+    padding: 28px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .distributor-body-gap {
+    padding-top: 70px;
+  }
+
+  .page-offset {
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+
+  .distributor-container {
+    padding: 0 16px;
+    gap: 36px;
+  }
+
+  .distributor-left h1 {
+    font-size: 26px;
+  }
+
+  .distributor-desc {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .distributor-info li {
+    font-size: 14px;
+  }
+
+  .distributor-form-card {
+    padding: 22px;
+  }
+
+  .distributor-form button {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .distributor-left h1 {
+    font-size: 22px;
+  }
+
+  .distributor-form-card {
+    padding: 20px;
+  }
+}
+
+
+/* ===============================
+   FINAL MOBILE FIX — DISTRIBUTOR
+================================ */
+@media (max-width: 600px) {
+
+  /* Page spacing */
+  .distributor-body-gap {
+    padding-top: 64px;   /* tighter */
+  }
+
+  .page-offset {
+    padding-bottom: 56px;
+  }
+
+  /* Headline */
+  .distributor-left h1 {
+    font-size: 24px;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .distributor-desc {
+    font-size: 14.5px;
+    text-align: center;
+  }
+
+  /* WHY PARTNER */
+  .distributor-info {
+    max-width: 100%;
+  }
+
+  .distributor-info li {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* FORM CARD */
+  .distributor-form-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .distributor-form-card h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* FORM INPUTS — SHORTER */
+  .distributor-form input,
+  .distributor-form select,
+  .distributor-form textarea {
+    padding: 12px 14px;     /* 🔥 smaller */
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  .distributor-form textarea {
+    min-height: 90px;
+  }
+
+  /* BUTTON — FULL WIDTH */
+  .distributor-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
   }
 }

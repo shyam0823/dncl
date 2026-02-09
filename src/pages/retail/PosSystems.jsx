@@ -4,31 +4,25 @@ import PosSystemData from "../../details/PosSystemData";
 
 export default function PosSystems() {
   return (
-   <section className="pos-product-wrapper">
-      <h1 className="pos-title">Point-of-Sale Systems</h1>
+    <section className="pos-section">
+      <h2 className="pos-title">
+        <span className="title-black">Point-of-Sale</span>{" "}
+        <span className="title-blue">Systems</span>
+      </h2>
 
-    <div className="pos-product-grid">
+      <div className="pos-wrapper">
         {PosSystemData.map((item) => (
           <Link
             key={item.id}
             to={`/retail/pos/${item.id}`}
-             className="pos-product-card"
+            className="pos-card"
           >
-            {/* IMAGE */}
-            <div className="pos-image-wrapper">
-              <img src={item.image} alt={item.title} />
-            </div>
+            <img src={item.image} alt={item.title} />
 
-            {/* INFO */}
-            <div className="pos-info">
-              <p className="pos-rock-model">
-                {item.title}
-              </p>
-
-              <p className="pos-desc">
-                {item.subtitle}
-              </p>
-
+            {/* OVERLAY */}
+            <div className="pos-overlay">
+              <p className="pos-model">{item.title}</p>
+              <p className="pos-subtitle">{item.subtitle}</p>
             </div>
           </Link>
         ))}

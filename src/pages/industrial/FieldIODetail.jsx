@@ -42,25 +42,30 @@ export default function FieldIODetail() {
         </div>
 
         <div className="fieldio-info">
-          <h1>{product.title}</h1>
+  <div className="fieldio-ui-card">
+    {product.title === "16-CH Digital Input" && (
+      <img src={diMoImg} alt="DI MQTT" />
+    )}
 
-          {product.title === "16-CH Digital Input" && (
-            <img src={diMoImg} alt="DI MQTT" />
-          )}
+    {product.title === "16-CH Digital Output" && (
+      <img src={doMqttImg} alt="DO MQTT" />
+    )}
 
-          {product.title === "16-CH Digital Output" && (
-            <img src={doMqttImg} alt="DO MQTT" />
-          )}
+    {product.title === "8-CH Analog Input" && (
+      <img src={analogInputImg} alt="Analog Input" />
+    )}
 
-          {product.title === "8-CH Analog Input" && (
-            <img src={analogInputImg} alt="Analog Input" />
-          )}
+    {product.title === "8-CH Analog Output" && (
+      <img src={analogOutputImg} alt="Analog Output" />
+    )}
 
-          {product.title === "8-CH Analog Output" && (
-            <img src={analogOutputImg} alt="Analog Output" />
-          )}
-        </div>
-      </div>
+    {/* SMALL TITLE LIKE MODEL NUMBER */}
+    <div className="fieldio-small-title">
+      {product.title}
+    </div>
+  </div>
+</div>
+</div>
 
       <div className="tabs">
         <button

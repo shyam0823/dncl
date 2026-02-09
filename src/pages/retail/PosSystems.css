@@ -1,197 +1,241 @@
-/* ================================
-   POS PRODUCT WRAPPER
-================================ */
-.pos-product-wrapper {
-  padding: 110px 40px 60px;
-  background: #f3f1f1;
-  color: #0a0a0a;
+/* ================= SECTION ================= */
+.pos-section {
+  background: #d4e9ff;
+  padding: 120px clamp(24px, 4vw, 60px);
 }
 
-/* ================================
-   TITLE
-================================ */
+/* ================= TITLE ================= */
 .pos-title {
-  font-size: 36px;
+  text-align: center;
+  font-size: 46px;
   font-weight: 700;
-  color: #111010;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
-/* ================================
-   GRID
-================================ */
-.pos-product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(24px, 3vw, 28px);
-  max-width: 1400px;
+.title-black {
+  color: #111;
+}
+
+.title-blue {
+  color: #1e40ff;
+}
+
+/* ================= GRID ================= */
+.pos-wrapper {
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 3vw, 40px);
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
 }
 
-/* ================================
-   CARD (FIELDIO STYLE)
-================================ */
-.pos-product-card {
+/* ================= CARD ================= */
+.pos-card {
   position: relative;
-  will-change: transform;
-  background: #363535;
-  border-radius: 22px;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background: #ffffff; /* ✅ FORCE WHITE */
+  text-decoration: none;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pos-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+}
+
+/* ================= IMAGE ================= */
+.pos-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   padding: 22px;
+  background: #ffffff; /* ✅ NO BLACK */
+  transition: transform 0.35s ease;
+}
+
+.pos-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ================= BLUE GLASS OVERLAY ================= */
+.pos-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+
+  background: rgba(0, 86, 155, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   display: flex;
   flex-direction: column;
-  height: 100%;
-
-  text-align: center;
-  text-decoration: none;
-  color: #ffffff; /* 🔥 force white text */
-
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid #333;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-
-/* ================================
-   HOVER EFFECT (MATCH FIELDIO)
-================================ */
-.pos-product-card:hover,
-.pos-product-card:focus-within {
-  background: #1e1e1e;
-  color: #ffffff;
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-}
-
-/* ================================
-   IMAGE
-================================ */
-.pos-image-wrapper {
-  width: 100%;
-  height: 240px;          /* 🔥 FIXED HEIGHT */
-  background: #050505;
-  border-radius: 18px;
-  padding: 22px;
-  margin-bottom: 16px;
-
-  display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.pos-image-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.pos-card:hover .pos-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-
-/* image background on hover */
-.pos-product-card:hover .pos-image-wrapper {
-  background: #8a8787;
-}
-
-/* ================================
-   INFO
-================================ */
-.pos-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-}
-
-
-/* ================================
-   TEXT
-================================ */
-.pos-rock-model {
+/* ================= TEXT ================= */
+.pos-model {
   font-size: 16px;
   font-weight: 700;
-  color: white;       /* ✅ WHITE */
-  margin-bottom: 6px;
-  transition: color 0.25s ease;
-}
-
-.pos-desc {
-  font-size: 14px;
-  color: #e0e0e0;       /* soft white */
-  margin-bottom: 18px;
-  transition: color 0.25s ease;
-}
-
-.pos-product-card:hover {
-  background: #1e1e1e;
-  transform: translateY(-10px); /* 🔥 more visible lift */
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-}
-
-.pos-product-card:hover .pos-rock-model {
-  color: #00e5ff; /* 🔥 blue */
-}
-
-.pos-product-card:hover .pos-desc,
-.pos-product-card:hover .pos-read-more {
   color: #ffffff;
 }
 
-
-/* ================================
-   READ MORE
-================================ */
-.pos-read-more {
-  margin-top: auto;
+.pos-subtitle {
+  margin-top: 6px;
   font-size: 13px;
-  font-weight: 700;
-  color: #838282;
-  cursor: pointer;
-  transition: color 0.25s ease;
+  color: #e8f1ff;
 }
 
-.pos-read-more span {
-  margin-left: 6px;
-  display: inline-block;
-  transition: transform 0.25s ease;
-}
-
-
-
-.pos-product-card:hover .pos-read-more span {
-  transform: translateX(4px);
-}
-
-/* ================================
-   ACCESSIBILITY
-================================ */
-.pos-product-card:focus {
-  outline: none;
-}
-
-.pos-product-card:focus-visible {
-  outline: 3px solid rgba(0, 229, 255, 0.12);
-  outline-offset: 4px;
-}
-
-/* ================================
-   RESPONSIVE
-================================ */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
-  .pos-product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .pos-product-grid {
+  .pos-wrapper {
     grid-template-columns: 1fr;
   }
+}
+ /* =====================================================
+   HARD RESET – POS CARD BACKGROUND (FINAL FIX)
+   ===================================================== */
 
-  .pos-product-wrapper {
-    padding: 90px 20px 50px;
+/* Kill ALL background transitions */
+.pos-card,
+.pos-card:hover,
+.pos-card:focus,
+.pos-card:active {
+  background: #ffffff !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Ensure image wrapper NEVER changes color */
+.pos-card img {
+  background: #ffffff !important;
+}
+
+/* Disable any inherited dark styles */
+.pos-card * {
+  background-color: transparent;
+}
+
+/* Hover ONLY lifts the card */
+.pos-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+}
+
+/* Overlay ONLY controls color */
+.pos-overlay {
+  background: rgba(0, 86, 155, 0.55);
+}
+
+/* FORCE POS OVERLAY TEXT TO WHITE */
+.pos-overlay .pos-model,
+.pos-overlay .pos-subtitle {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+
+/* =====================================
+   RESPONSIVE FIX — POS SECTION (GRID)
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .pos-section {
+    padding: 90px 32px;
+  }
+
+  .pos-title {
+    font-size: 38px;
+    margin-bottom: 60px;
+  }
+
+  .pos-card {
+    height: 320px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .pos-section {
+    padding: 70px 24px;
+  }
+
+  .pos-title {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
+
+  .pos-wrapper {
+    gap: 26px;
+  }
+
+  .pos-card {
+    height: 300px;
+  }
+
+  /* show overlay by default on touch */
+  .pos-overlay {
+    height: 55%;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .pos-section {
+    padding: 60px 16px;
+  }
+
+  .pos-title {
+    font-size: 26px;
+    margin-bottom: 36px;
+    line-height: 1.25;
+  }
+
+  .pos-card {
+    height: 260px;
+    border-radius: 14px;
+  }
+
+  .pos-card img {
+    padding: 16px;
+  }
+
+  .pos-model {
+    font-size: 15px;
+  }
+
+  .pos-subtitle {
+    font-size: 12px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .pos-title {
+    font-size: 22px;
+  }
+
+  .pos-card {
+    height: 230px;
   }
 }

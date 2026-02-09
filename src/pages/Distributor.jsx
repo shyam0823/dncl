@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import "./Distributor.css";
 
 export default function Distributor() {
+
+
+  useEffect(() => {
+    document.body.classList.add("distributor-body-gap");
+    return () => {
+      document.body.classList.remove("distributor-body-gap");
+    };
+  }, []);
+
+
   return (
     <section className="distributor-wrapper page-offset">
       <div className="distributor-container">

@@ -390,3 +390,259 @@
     display: none;
   }
 }
+
+
+/* =====================================
+   RESPONSIVE FIX — TICKET + SUPPORT
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .ticket-wrapper {
+    padding-bottom: 60px;
+  }
+
+  .ticket-title {
+    font-size: 38px;
+  }
+
+  .ticket-container {
+    padding: 0 24px;
+  }
+
+  .support-wrapper {
+    padding: 80px 0;
+  }
+
+  .support-left h1 {
+    font-size: 38px;
+  }
+
+  .support-left h3 {
+    font-size: 34px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .page-offset {
+    padding-top: 90px;
+  }
+
+  .ticket-title {
+    font-size: 32px;
+  }
+
+  .ticket-desc {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .ticket-status-card {
+    padding: 28px;
+    margin-top: 40px;
+  }
+
+  .support-wrapper {
+    padding: 70px 0;
+  }
+
+  .support-container {
+    gap: 40px;
+  }
+
+  .support-left h1 {
+    font-size: 32px;
+  }
+
+  .support-left h3 {
+    font-size: 28px;
+  }
+
+  .support-form-card {
+    padding: 28px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .page-offset {
+    padding-top: 70px;
+  }
+
+  .ticket-container {
+    padding: 0 16px;
+  }
+
+  .ticket-title {
+    font-size: 26px;
+  }
+
+  .ticket-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .ticket-form {
+    max-width: 100%;
+  }
+
+  .ticket-status-card {
+    padding: 22px;
+  }
+
+  .ticket-status-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .progress-info {
+    font-size: 13px;
+  }
+
+  .support-wrapper {
+    padding: 60px 0;
+  }
+
+  .support-container {
+    padding: 0 16px;
+  }
+
+  .support-left h1 {
+    font-size: 26px;
+  }
+
+  .support-left h3 {
+    font-size: 24px;
+  }
+
+  .support-left p {
+    font-size: 15px;
+  }
+
+  .support-form-card {
+    padding: 22px;
+  }
+
+  .support-form button {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .ticket-title {
+    font-size: 22px;
+  }
+
+  .support-left h1 {
+    font-size: 22px;
+  }
+
+  .support-left h3 {
+    font-size: 20px;
+  }
+}
+
+
+
+/* =====================================
+   FINAL MOBILE FIX — SUPPORT TICKET
+===================================== */
+@media (max-width: 600px) {
+
+  /* Headings */
+  .ticket-title {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  .ticket-desc {
+    font-size: 14px;
+  }
+
+  /* Form spacing */
+  .ticket-form {
+    gap: 12px;
+  }
+
+  .ticket-form input,
+  .phone-input input {
+    padding: 12px 14px;   /* shorter */
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  /* Error text */
+  .error-text {
+    font-size: 12px;
+  }
+
+  /* Button */
+  .ticket-form button {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+}
+
+/* =====================================
+   MOBILE STEPPER — CLEAN STACK
+===================================== */
+@media (max-width: 900px) {
+
+  .progress-track {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .progress-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .progress-circle {
+    margin: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .progress-info {
+    margin-top: 0;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 14px;
+  }
+}
+
+
+/* =====================================
+   MOBILE — CONTACT SUPPORT FORM
+===================================== */
+@media (max-width: 600px) {
+
+  .support-form-card h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .support-form input,
+  .support-form textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .support-form textarea {
+    min-height: 90px;
+  }
+}
+
+
+
+

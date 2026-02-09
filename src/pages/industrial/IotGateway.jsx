@@ -1,30 +1,33 @@
 import { Link } from "react-router-dom";
 import IotGatewayData from "../../details/IotGatewayData";
-import "./FieldIO.css";
+import "./IotGateway.css";
 
 export default function IotGateway() {
   return (
-    <section className="fieldio-wrapper">
-      <h1>Industrial IOT Gateway</h1>
+    <section className="bong-section">
+      <h2 className="bong-title">
+        <span className="title-black">Industrial</span>{" "}
+        <span className="title-blue">IoT Gateway</span>
+      </h2>
 
-      <div className="fieldio-grid">
+      <div className="bong-wrapper">
         {IotGatewayData.map((item) => (
           <Link
             key={item.id}
             to={`/industrial/iot-gateway/${item.id}`}
-            className="fieldio-card"
+            className="bong-card"
           >
-            <div className="fieldio-image-wrapper">
-              <img src={item.image} alt={item.subtitle} />
-            </div>
+            {/* IMAGE */}
+            <img
+              src={item.image}
+              alt={item.subtitle}
+              className="bong-image"
+            />
 
-            <div className="fieldio-content">
-              <h3>
-                <span className="title-blue">{item.title}</span>
-                <br />
-                <span className="title-dark">{item.subtitle}</span>
-              </h3>
-
+            {/* OVERLAY */}
+            <div className="bong-overlay">
+              <p className="bong-model">{item.title}</p>
+              <p className="bong-subtitle">{item.subtitle}</p>
             </div>
           </Link>
         ))}

@@ -12,6 +12,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Distributor from "./pages/Distributor";
 import Support from "./pages/support/Support";
+import Careers from "./pages/Careers";
+
 
 
 /* ===============================
@@ -62,6 +64,8 @@ export default function App() {
         <Route path="/distributor" element={<Distributor />} />
         <Route path="/support" element={<Support />} />
         <Route path="/book-demo" element={<BookDemo />} />
+        <Route path="/careers" element={<Careers />} />
+
 
         {/* RETAIL */}
         <Route path="/retail" element={<RetailProducts />} />

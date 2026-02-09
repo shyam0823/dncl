@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import "./Hero.css";
-import heroBg from "../assets/whiteban.png";
-import windowImg from "../assets/window.jpeg";
-import embeddedImg from "../assets/embedded.jpg";
+import heroBg from "../assets/retailban.jpg";
+import embeddedImg from "../assets/industrial.jpg";
 
 export default function Hero() {
-  const images = [heroBg, windowImg, embeddedImg];
+  const images = [heroBg, embeddedImg];
   const [currentImage, setCurrentImage] = useState(0);
   const timerRef = useRef(null);
 
@@ -38,9 +37,17 @@ export default function Hero() {
       className="dncl-hero"
       style={{ backgroundImage: `url(${images[currentImage]})` }}
     >
+      {/* ✅ MOBILE IMAGE (VISIBLE ONLY ON MOBILE) */}
+      <div className="dncl-hero-mobile-image">
+        <img
+          src={images[currentImage]}
+          alt="DNCL Products"
+        />
+      </div>
+
       <div className="dncl-hero-overlay" />
 
-      {/* ARROWS */}
+      {/* ARROWS (DESKTOP ONLY) */}
       <button className="hero-arrow left" onClick={prevSlide}>
         ❮
       </button>

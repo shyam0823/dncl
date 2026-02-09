@@ -1,10 +1,9 @@
 import "./Footer.css";
 import lionBanner from "../assets/madein.png";
-import footerLogo from "../assets/footnew.png";
+import footerLogo from "../assets/footernew.png";
 import {
   Facebook,
   Linkedin,
-  Twitter,
   Youtube,
   Instagram,
   Mail,
@@ -40,10 +39,12 @@ export default function Footer() {
         <div className="dncl-footer-col dncl-footer-contact">
           <h5>Contact</h5>
 
-          <div className="dncl-footer-contact-item">
-            <Mail size={18} />
-            <span>sales@dncltech.com</span>
-          </div>
+<div className="dncl-footer-contact-item">
+  <Mail size={18} />
+  <a href="mailto:sales@dncltech.com">
+    sales@dncltech.com
+  </a>
+</div>
 
           <div className="dncl-footer-contact-item">
             <Phone size={18} />
@@ -57,16 +58,47 @@ export default function Footer() {
         </div>
 
         {/* ================= SUPPORT ================= */}
-        <div className="dncl-footer-col dncl-footer-support">
-          <h5>Support</h5>
+     <div className="dncl-footer-col dncl-footer-support">
+  <h5>Support</h5>
 
-          <a href="/support" className="dncl-footer-link">Support Center</a>
+  <a href="/support#raise-ticket" className="dncl-footer-link">
+    Support Center
+  </a>
 
-          <div className="dncl-footer-contact-item">
-            <Mail size={18} />
-            <span>support@dncltech.com</span>
-          </div>
-        </div>
+  <a href="/support#raise-ticket" className="dncl-footer-link">
+    Order Status
+  </a>
+
+  <a href="/book-demo" className="dncl-footer-link">
+    Book a Demo
+  </a>
+
+  <div className="dncl-footer-contact-item">
+    <Mail size={18} />
+   <a
+  href="mailto:support@dncltech.com"
+  className="dncl-footer-link dncl-footer-email"
+>
+  support@dncltech.com
+</a>
+
+  </div>
+</div>
+
+
+
+{/* ================= ABOUT ================= */}
+<div className="dncl-footer-col dncl-footer-about">
+  <h5>About</h5>
+
+  <a href="/about" className="dncl-footer-link">
+    About DNCL
+  </a>
+
+  <a href="/careers" className="dncl-footer-link">
+    Careers
+  </a>
+</div>
 
         {/* ================= RIGHT ================= */}
         <div className="dncl-footer-col dncl-footer-follow">
@@ -77,7 +109,6 @@ export default function Footer() {
             <a href="https://www.linkedin.com/company/dncl-tech/" target="_blank" rel="noreferrer">
               <Linkedin size={18} />
             </a>
-            <a href="#"><Twitter size={18} /></a>
             <a href="https://youtube.com/@dncltech5766" target="_blank" rel="noreferrer">
               <Youtube size={18} />
             </a>
@@ -87,9 +118,10 @@ export default function Footer() {
           </div>
 
           {/* MAKE IN INDIA */}
-          <div className="dncl-footer-badge">
-            <img src={lionBanner} alt="Make in India" />
-          </div>
+          <div className="dncl-footer-makeinindia">
+  <img src={lionBanner} alt="Make in India" />
+</div>
+
         </div>
 
       </div>

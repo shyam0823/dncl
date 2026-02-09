@@ -4,10 +4,13 @@ import "./FieldIO.css";
 
 export default function FieldIO() {
   return (
-    <section className="fieldio-wrapper">
-      <h1>Field I/O Modules</h1>
+    <section className="fieldio-section">
+      <h2 className="fieldio-title">
+        <span className="title-black">Field I/O</span>{" "}
+        <span className="title-blue">Modules</span>
+      </h2>
 
-      <div className="fieldio-grid">
+      <div className="fieldio-wrapper">
         {FieldInputData.map((item) => (
           <Link
             key={item.id}
@@ -15,19 +18,12 @@ export default function FieldIO() {
             className="fieldio-card"
           >
             {/* IMAGE */}
-            <div className="fieldio-image-wrapper">
-              <img src={item.image} alt={item.title} />
-            </div>
+            <img src={item.image} alt={item.title} />
 
-            {/* INFO */}
-            <div className="fieldio-info">
-              <p className="fieldio-model">
-                Model No: <strong>{item.subtitle}</strong>
-              </p>
-
-              <p className="fieldio-desc">
-                {item.title}
-              </p>
+            {/* OVERLAY */}
+            <div className="fieldio-overlay">
+              <p className="fieldio-model">{item.subtitle}</p>
+              <p className="fieldio-subtitle">{item.title}</p>
             </div>
           </Link>
         ))}

@@ -19,32 +19,52 @@ export default function IotGatewayDetail() {
   }
 
   return (
-    <section className="fieldio-detail-iot">
-      <h1>{product.title} – {product.subtitle}</h1>
+    <section className="fieldio-detail-page">
+      {/* ================= TOP LAYOUT ================= */}
+      <div className="fieldio-top">
+        {/* LEFT IMAGE CARD */}
+        <div className="fieldio-image-box">
+          <img src={product.image} alt={product.subtitle} />
 
-      <img src={product.image} alt={product.subtitle} />
+          {product.modelNumber && (
+            <div className="fieldio-model">
+              Model No: <strong>{product.modelNumber}</strong>
+            </div>
+          )}
+        </div>
 
+        {/* RIGHT CONTENT */}
+        <div className="fieldio-info">
+        <h1 className="iot-title">
+  <span className="title-black">{product.title}</span>{" "}
+  <span className="title-blue">{product.subtitle}</span>
+</h1>
+
+        </div>
+      </div>
+
+      {/* ================= TABS ================= */}
       <div className="tabs">
         <button onClick={() => setTab("specs")} className={tab === "specs" ? "active" : ""}>
           Specifications
         </button>
-       <button onClick={() => setTab("features")} className={tab === "features" ? "active" : ""}>
-  Features
-</button>
 
-{/* ⭐ SHOW ONLY IF MODEL EXISTS */}
-{product.model && (
-  <button onClick={() => setTab("model")} className={tab === "model" ? "active" : ""}>
-    3D Model
-  </button>
-)}
+        <button onClick={() => setTab("features")} className={tab === "features" ? "active" : ""}>
+          Features
+        </button>
 
-<button onClick={() => setTab("download")} className={tab === "download" ? "active" : ""}>
-  Downloads
-</button>
+        {product.model && (
+          <button onClick={() => setTab("model")} className={tab === "model" ? "active" : ""}>
+            3D Model
+          </button>
+        )}
 
+        <button onClick={() => setTab("download")} className={tab === "download" ? "active" : ""}>
+          Downloads
+        </button>
       </div>
 
+      {/* ================= SPECIFICATIONS ================= */}
       {tab === "specs" && (
         <table>
           <tbody>
@@ -58,8 +78,9 @@ export default function IotGatewayDetail() {
         </table>
       )}
 
+      {/* ================= FEATURES ================= */}
       {tab === "features" && (
-        <ul>
+        <ul className="feature-list">
           {product.features.map((f, i) => (
             <li key={i}>{f}</li>
           ))}
@@ -67,22 +88,27 @@ export default function IotGatewayDetail() {
       )}
 
       {/* ================= 3D MODEL ================= */}
-{tab === "model" && product.model && (
-  <div className="model-section">
-    <h2>3D Model</h2>
+      {tab === "model" && product.model && (
+        <div className="model-section">
+          <h2>3D Model</h2>
+          <div className="model-card">
+            <ModelViewer model={product.model} />
+          </div>
+        </div>
+      )}
 
-    <div className="model-card">
-      <ModelViewer model={product.model} />
-    </div>
-  </div>
-)}
-
-
+      {/* ================= DOWNLOADS ================= */}
       {tab === "download" && (
         <div className="download-actions">
-          <a href={product.download} target="_blank" rel="noopener noreferrer" className="view-btn">
+          <a
+            href={product.download}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="view-btn"
+          >
             View Datasheet
           </a>
+
           <a href={product.download} download className="download-btn">
             Download Datasheet
           </a>

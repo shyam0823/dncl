@@ -1,154 +1,96 @@
 /* ================= SMART AUTO HEADER ================= */
 
-.dncl-header{
+.dncl-header {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 
-  background:#ffffff;
-
-  transition: transform 0.32s ease;
+  background: transparent;
+  transition: opacity 0.25s ease;
 }
 
-/* hidden */
-.dncl-header.hide{
-  transform: translateY(-120%);
+/* ================= HEADER STATES ================= */
+
+/* Hidden (leave a small hover area) */
+.dncl-header.hide {
+   opacity: 0;
+  pointer-events: none;
 }
 
-/* visible */
-.dncl-header.show{
-  transform: translateY(0);
+/* Visible */
+.dncl-header.show {
+  opacity: 1;
 }
 
-.dncl-header{
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:9999;
-
-  background: transparent;   /* KEY LINE */
-  transition: transform 0.32s ease;
+/* Invisible hover trigger at top */
+.dncl-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.2em;
+  pointer-events: auto;
 }
 
+/* ================= HEADER CONTAINER ================= */
 
-/* ================= FORCE HEADER TEXT WHITE ================= */
+.dncl-header-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 12px 32px;
+  display: flex;
+  grid-template-columns: auto 1fr auto; /* LEFT | CENTER | RIGHT */
+  align-items: center;
+}
+
+/* ================= FORCE TEXT COLOR ================= */
+
 .dncl-header,
 .dncl-header .nav-link {
   color: #0b1220 !important;
 }
 
-
-
-.dncl-header-container {
-  max-width: 1400px;
-  margin: auto;
-  padding-inline: clamp(12px, 3vw, 32px);
-  padding-block: 12px;
-  display: flex;
-  align-items: center;
-}
-
-
-/* ================= GLASS HEADER ================= */
-
-
-
-
-/* ================= INNER HEADER ================= */
-
-
-
-.inner-header .nav-link {
-  color: #111;
-}
-
-.inner-header .nav-link:hover {
-  color: var(--dncl-primary);
-}
-
-
-/* ================= LOGO ================= */
-
-.logo-home {
-  height: 72px;
-}
-
-.logo-inner {
-  height: 62px;
-}
-
 /* ================= NAV ================= */
 
 .dncl-nav {
-  margin-left: clamp(20px, 3vw, 40px);   /* control distance from logo */
-  margin-right: auto;
   display: flex;
-  gap: clamp(16px, 2vw, 32px);
   align-items: center;
   justify-content: center;
-  flex: 1 1 auto;
-  flex-wrap: wrap; /* allow wrapping to avoid overflow on narrow screens */
-}
-
-
-.dncl-header-right{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-
-.madein-badge{
-  height:72px;
-  width:auto; 
-  object-fit:contain;
-  margin-left:-20px; 
-}
-
-.dncl-header-btn{
-  margin-right: 0;
-}
-
-.dncl-header-btn{
-  margin-right: 70px;   /* increase this value to move more left */
-}
-
-
-.home-header .nav-link {
-  color: #ffffff;
-}
-
-.inner-header .nav-link {
-  color: #222;
+  gap: 32px;
+  margin-left: 8px;
+  flex: 1;
 }
 
 .nav-link {
-  text-decoration:none;
-  font-weight:600;
-  font-size:16px;
-  position:relative;
-  transition:color .25s;
+  position: relative;
+  display: inline-block;
+  padding: 6px 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0b1220;
+  cursor: pointer;
 }
 
 /* underline */
-.nav-link::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;        /* distance from text */
-  width:0%;
-  height:3px;
-  background:#1e40ff;
-  border-radius:4px;
-  transition:width .28s ease;
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #1e40ff;
+  border-radius: 3px;
+  transition: width 0.25s ease;
 }
 
-/* hover effect */
-.nav-link:hover::after{
-  width:100%;
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-link:hover {
@@ -159,30 +101,42 @@
 
 .nav-item {
   position: relative;
+  display: inline-block;
+}
+
+/* hover bridge */
+.nav-item.dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 16px;
 }
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 14px);
-  left: 0;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   background: #ffffff;
-  border-radius: 8px;
+  min-width: 240px;
+  border-radius: 10px;
   box-shadow: 0 14px 40px rgba(0,0,0,0.15);
-  min-width: 220px;
+  padding: 10px 0;
+
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: 0.25s ease;
   pointer-events: none;
-  z-index: 10000;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .dropdown-menu a {
   display: block;
-  padding: 12px 18px;
+  padding: 12px 20px;
+  font-weight: 600;
+  color: #111;
   text-decoration: none;
-  color: #222;
-  font-weight: 500;
 }
 
 .dropdown-menu a:hover {
@@ -190,176 +144,329 @@
   color: #1e40ff;
 }
 
+/* show dropdown */
 .nav-item.dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
   pointer-events: auto;
 }
 
-/* ================= CTA ================= */
-.dncl-header-btn {
-  background: transparent;
-  color: inherit !important;
-  padding: 0;
-  border-radius: 0;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  position: relative;
-  transition: color .25s;
+/* ================= RIGHT SIDE ================= */
+
+.dncl-header-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;     /* 🔥 prevents layout bleed */
 }
 
-/* underline */
-.dncl-header-btn::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 3px;
-  background: #1e40ff;
-  border-radius: 4px;
-  transition: width .28s ease;
+.madein-badge {
+  height: 82px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 0;    /* ❌ remove negative margin */
 }
 
-/* hover effect */
-.dncl-header-btn:hover::after {
-  width: 100%;
+/* ================= LOGO ================= */
+
+.logo-inner {
+  height: clamp(36px, 4vw, 74px);
 }
 
-.dncl-header-btn:hover {
-  color: #1e40ff;
+@media (max-width: 900px) {
+  .logo-inner {
+    height: 48px;
+  }
 }
 
-.dncl-header-btn:active {
-  transform: scale(0.98);
-}
+/* ================= MOBILE ================= */
 
-
-
-/* Mobile menu button - hidden on desktop */
 .mobile-menu-btn {
   display: none;
 }
 
-/* ================= MOBILE MENU ================= */
-@media (max-width: 900px) {
-  .dncl-nav {
-    display: none; /* hide desktop nav */
+
+
+/* ================= MISC ================= */
+
+.nav-parent {
+  cursor: default;
+}
+
+.dncl-logo:focus-visible {
+  outline: none;
+}
+
+
+
+
+/* =====================================
+   RESPONSIVE FIX — HEADER
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .dncl-header-container {
+    padding: 10px 20px;
   }
 
-  /* Mobile menu button */
-  .mobile-menu-btn {
-    display: block;
-    background: none;
-    border: none;
-    color: inherit;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 8px;
-  }
-
-  /* Mobile menu */
-  .mobile-nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    border-top: 1px solid #eee;
-    padding: 20px;
-    display: none;
-    flex-direction: column;
-    gap: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    z-index: 1000;
-  }
-
-  .mobile-nav.active {
-    display: flex;
-  }
-
-  .mobile-nav .nav-link {
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
+  .nav-link {
     font-size: 16px;
   }
 
-  .mobile-nav .nav-link:last-child {
-    border-bottom: none;
-  }
-
-  .logo-inner {
-    height: 48px;
+  .madein-badge {
+  height: clamp(28px, 4vw, 82px);
   }
 }
 
-  /* Mobile menu */
-  .mobile-nav {
-    position: absolute;
-    top: 100%;
+/* TABLET / MOBILE SWITCH */
+@media (max-width: 900px) {
+  .dncl-header {
+    background: transparent;
+  }
+
+  .dncl-header.hide {
+    transform: translateY(0); /* disable auto-hide on mobile */
+  }
+
+  .dncl-header::before {
+    display: none;
+  }
+
+  .dncl-header-container {
+    justify-content: space-between;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .logo-inner {
+    height: 42px;
+  }
+
+  .madein-badge {
+    height: 52px;
+  }
+
+  .dncl-header-container {
+    padding: 8px 16px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .logo-inner {
+    height: 36px;
+  }
+
+  .madein-badge {
+    height: 46px;
+  }
+}
+
+
+/* =========================
+   FORCE NAV TABS VISIBLE
+   (Mobile / Tablet / PC)
+========================= */
+
+@media (max-width: 900px) {
+   .dncl-nav {
+    flex: 1;
+    min-width: 0;              /* VERY IMPORTANT */
+    flex-wrap: nowrap;
+    overflow-x: auto;          /* allow scroll */
+    white-space: nowrap;
+    justify-content: flex-start;
+  }
+
+
+  .dncl-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .dncl-nav {
+    gap: 12px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================
+   MOBILE — SINGLE ROW HEADER
+========================= */
+
+@media (max-width: 900px) {
+  .dncl-header-container {
+    flex-direction: row;        /*  back to single row */
+    align-items: center;
+    gap: 10px;
+  }
+
+   .dncl-nav {
+    min-width: 0;              /* critical */
+    justify-content: flex-start; /* NOT center */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: none !important;
+  }
+
+  .dncl-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .dncl-logo,
+  .dncl-header-right {
+    flex-shrink: 0;
+  }
+
+  .logo-inner {
+    height: 26px;   /*  smaller */
+  }
+
+  .madein-badge {
+    height: 24px;   /*  smaller */
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .nav-link {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 4px;
+    flex-shrink: 0;          /*  IMPORTANT */
+    white-space: nowrap;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .logo-inner {
+    height: 26px;
+  }
+
+  .madein-badge {
+    height: 24px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .dncl-nav {
+    gap: 6px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+    padding: 3px 3px;
+  }
+}
+
+
+.desktop-only {
+  display: flex;
+  justify-content: center;
+}
+
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+
+
+@media (max-width: 900px) {
+
+  /* hide desktop nav */
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 72px;
     left: 0;
     right: 0;
     background: #ffffff;
-    border-top: 1px solid #eee;
     padding: 20px;
-    display: none;
-    flex-direction: column;
-    gap: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-
-  .mobile-nav.active {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 9998;
   }
 
-  .mobile-nav .nav-link {
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
-  .mobile-nav .nav-link:last-child {
-    border-bottom: none;
+  .mobile-menu a,
+  .mobile-menu summary {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0b1220;
+    text-decoration: none;
+    cursor: pointer;
   }
 
-  .logo-inner {
-    height: 48px;
+  .mobile-menu details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-
-
-/* ================= DROPDOWN COLOR FIX ================= */
-
-/* Dropdown container */
-.dncl-header .dropdown-menu {
-  background: #ffffff;
-}
-
-/* Dropdown links */
-.dncl-header .dropdown-menu a {
-  color: #111 !important;
-}
-
-/* Hover state */
-.dncl-header .dropdown-menu a:hover {
-  background: #f1f5ff;
-  color: var(--dncl-primary) !important;
-}
-
-
-.dncl-footer-badge {
-  display: flex;
-  justify-content: center;  /* ✅ CENTER LOGO */
-  margin-top: 10px;
-}
-
-.dncl-footer-badge img {
-  max-width: 160px;
-  height: auto;
-}
-
-
-.dncl-logo:focus-visible{
-  outline:none;
+  .mobile-menu details a {
+    padding-left: 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
 }

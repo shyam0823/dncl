@@ -1,156 +1,231 @@
-/* ================= WRAPPER ================= */
-.fieldio-wrapper {
-  padding: 110px 40px 60px;
-  background: #f3f1f1;
-  color: #0a0a0a;
+/* ================= SECTION ================= */
+.fieldio-section {
+  background: #d4e9ff;
+  padding: 120px clamp(24px, 4vw, 60px);
 }
 
-.fieldio-wrapper h1 {
-  font-size: 36px;
+/* ================= TITLE ================= */
+.fieldio-section .fieldio-title {
+  text-align: center;
+  font-size: 46px;
   font-weight: 700;
-  color: #111010;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
-/* ================= GRID ================= */
-.fieldio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(24px, 3vw, 28px);
-  max-width: 1400px;
+.fieldio-section .title-black {
+  color: #111;
+}
+
+.fieldio-section .title-blue {
+  color: #1e40ff;
+}
+
+/* ================= GRID (2 x 2) ================= */
+.fieldio-section .fieldio-wrapper {
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 3vw, 40px);
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
 }
 
 /* ================= CARD ================= */
-.fieldio-card {
-  background: #363535;
-  border-radius: 22px;
-  padding: 22px;
+.fieldio-section .fieldio-card {
+  position: relative;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  background: #ffffff !important;
+  text-decoration: none;
 
-  text-align: center;
-  color: #f8f4f4;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid #333;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease;
+  isolation: isolate;
 }
 
-/* ================= HOVER EFFECT ================= */
-.fieldio-card:hover,
-.fieldio-card:focus-within {
-  background: #1e1e1e;
-  color: #ffffff;
+.fieldio-section .fieldio-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.18);
 }
 
 /* ================= IMAGE ================= */
-.fieldio-image-wrapper {
-  width: 100%;
-  min-height: 240px;
-  background: #050505;
-  border-radius: 18px;
-  padding: 26px;
-  margin-bottom: 18px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: background 0.25s ease;
-}
-
-.fieldio-image-wrapper img {
+.fieldio-section .fieldio-card img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  padding: 22px;
+
+  background: #ffffff !important;
+  transition: transform 0.35s ease;
 }
 
-/* image background on hover */
-.fieldio-card:hover .fieldio-image-wrapper {
-  background: #8a8787;
+.fieldio-section .fieldio-card:hover img {
+  transform: scale(1.04);
 }
 
-/* ================= INFO ================= */
-.fieldio-info {
+/* ================= BLUE GLASS OVERLAY ================= */
+.fieldio-section .fieldio-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+
+  background: rgba(0, 86, 155, 0.55); /* SAME AS POS */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  pointer-events: none;
 }
 
-/* ================= TEXT ================= */
-.fieldio-model {
-  font-size: 15px;
-  color: #f9faf6;
-  margin-bottom: 10px;
-  transition: color 0.25s ease;
+
+.fieldio-section .fieldio-card:hover .fieldio-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.fieldio-model strong {
-  color: #f2f2f7;
+
+/* ================= TEXT (WHITE, NO BOXES) ================= */
+.fieldio-section .fieldio-overlay .fieldio-model,
+.fieldio-section .fieldio-overlay .fieldio-subtitle {
+  color: #ffffff !important;
+  background: none !important;
+}
+
+.fieldio-section .fieldio-model {
+  font-size: 16px;
   font-weight: 700;
-  transition: color 0.25s ease;
 }
 
-.fieldio-desc {
-  font-size: 14px;
-  color: #d4cece;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  transition: color 0.25s ease;
-}
-
-/* ================= READ MORE ================= */
-.read-more {
-  margin-top: auto;
+.fieldio-section .fieldio-subtitle {
+  margin-top: 6px;
   font-size: 13px;
-  font-weight: 700;
-  color: #838282;
-  cursor: pointer;
-  transition: color 0.25s ease;
+  color: #e8f1ff;
 }
 
-.read-more span {
-  margin-left: 6px;
-  display: inline-block;
-  transition: transform 0.25s ease;
+/* ================= HARD RESET (FIELDIO ONLY) ================= */
+.fieldio-section .fieldio-card,
+.fieldio-section .fieldio-card:hover,
+.fieldio-section .fieldio-card:focus,
+.fieldio-section .fieldio-card:active {
+  background: #ffffff !important;
 }
 
-/* ================= TEXT HOVER CHANGE ================= */
-.fieldio-card:hover .fieldio-model,
-.fieldio-card:hover .fieldio-desc,
-.fieldio-card:hover .read-more {
-  color: #ffffff;
+.fieldio-section .fieldio-card img {
+  background: #ffffff !important;
 }
 
-.fieldio-card:hover .fieldio-model strong {
-  color: #00e5ff;
+/* SAFE reset – excludes overlay */
+.fieldio-section .fieldio-card > *:not(.fieldio-overlay) {
+  background-color: transparent !important;
 }
 
-.fieldio-card:hover .read-more span {
-  transform: translateX(4px);
-}
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
-  .fieldio-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .fieldio-section .fieldio-wrapper {
+    grid-template-columns: 1fr;
   }
 }
 
+
+
+/* =====================================
+   RESPONSIVE FIX — FIELDIO SECTION
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .fieldio-section {
+    padding: 90px 32px;
+  }
+
+  .fieldio-section .fieldio-title {
+    font-size: 38px;
+    margin-bottom: 60px;
+  }
+
+  .fieldio-section .fieldio-card {
+    height: 320px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .fieldio-section {
+    padding: 70px 24px;
+  }
+
+  .fieldio-section .fieldio-title {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
+
+  .fieldio-section .fieldio-wrapper {
+    gap: 26px;
+  }
+
+  .fieldio-section .fieldio-card {
+    height: 300px;
+  }
+
+  .fieldio-section .fieldio-overlay {
+    height: 55%;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
 @media (max-width: 600px) {
-  .fieldio-grid {
-    grid-template-columns: 1fr;
+  .fieldio-section {
+    padding: 60px 16px;
+  }
+
+  .fieldio-section .fieldio-title {
+    font-size: 26px;
+    margin-bottom: 36px;
+    line-height: 1.25;
+  }
+
+  .fieldio-section .fieldio-card {
+    height: 260px;
+    border-radius: 14px;
+  }
+
+  .fieldio-section .fieldio-card img {
+    padding: 16px;
+  }
+
+  .fieldio-section .fieldio-model {
+    font-size: 15px;
+  }
+
+  .fieldio-section .fieldio-subtitle {
+    font-size: 12px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .fieldio-section .fieldio-title {
+    font-size: 22px;
+  }
+
+  .fieldio-section .fieldio-card {
+    height: 230px;
   }
 }

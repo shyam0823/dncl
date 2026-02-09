@@ -1,90 +1,196 @@
-.category-link{
-  text-decoration:none;
-  color:inherit;
-  display:block;
-}
-
-/* ================= CARD ================= */
+/* ================= CATEGORY CONTAINER ================= */
 .category-card{
-  border-radius:18px;
-  padding:26px;
-  background:#c7c7c7;
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border:1px solid rgba(0,0,0,0.1);
-  transition:0.3s;
+  width: 100%;          /* 🔥 allow full container width */
 }
 
-.category-card:hover{
-  transform:translateY(-10px);
+.products-container {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 12px;   /*  was too large earlier */
 }
 
-/* ================= TITLE ================= */
+
+/* 🔥 ADD SPACE BEFORE INDUSTRIAL SECTION */
+.category-card + .category-card{
+  margin-top: 140px;   /* 👈 THIS FIXES THE GAP */
+}
+
+/* ================= CATEGORY TITLE ================= */
 .category-title{
-  text-align:center;
-  font-size:24px;
-  font-weight:700;
-  margin-bottom:24px;
-  color:#000000;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #111;
 }
 
-/* ================= GRID ================= */
-.category-images{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
+/* ================= GRID (2x2) ================= */
+.category-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 /* ================= PRODUCT CARD ================= */
-.product-card{
-  background:#ffffff;
-  border-radius:14px;
-  padding:16px;
-  text-align:center;
-  border:1px solid #e0e0e0;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+.product-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 460px;                 /*  BIGGER CARD */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  text-decoration: none;
+  box-shadow: none;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.product-card:hover{
-  background:#4a4a4b;
-  border-color:#cccccc;
-  transform:translateY(-3px);
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.28);
 }
 
-/* ================= IMAGE ================= */
-.product-card img{
-  width:100%;
-  height:auto;
-  max-height:120px;
-  object-fit:contain;
-  margin-bottom:10px;
+
+/* ================= IMAGE (FULLY VISIBLE) ================= */
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /*  KEY CHANGE */
+  padding: 0;                 /*  REMOVE PADDING */
+  background: none;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+
+/* ================= OVERLAY (BOTTOM 50% – BLUE GLASS) ================= */
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(1, 14, 27, 0.75) 0%,
+    rgba(15, 40, 73, 0.35) 45%,
+    rgba(5, 101, 236, 0.05) 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  opacity: 1;                 /*  ALWAYS VISIBLE */
+  transform: none;
+}
+
+
+.product-card:hover .product-overlay{
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ================= TEXT ================= */
-.product-model{
-  display:block;
-  font-size:14px;
-  font-weight:600;
-  color:#000000;
-  transition:color 0.25s ease;
+.product-model {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
 }
 
-.product-subtitle{
-  display:block;
-  font-size:16px; /* Increased from 12.5px */
-  color:#666666;
-  margin-top:3px;
-  transition:color 0.25s ease;
+.product-subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.85);
 }
 
-/* 🔥 TEXT COLOR ON HOVER */
-.product-card:hover .product-model{
-  color:#ffffff;
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px){
+  .category-images{
+    grid-template-columns: 1fr;
+  }
+
+  .category-card + .category-card{
+    margin-top: 100px;
+  }
 }
 
-.product-card:hover .product-subtitle{
-  color:#dcdcdc;
+
+
+
+/* =====================================
+   RESPONSIVE FIX — CATEGORY / PRODUCT GRID
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .category-images {
+    gap: 24px;
+  }
+
+  .product-card {
+    height: 300px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .category-title {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+
+  .product-card {
+    height: 280px;
+  }
+
+  .product-overlay {
+    height: 55%;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .category-card + .category-card {
+    margin-top: 70px;
+  }
+
+  .category-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .category-images {
+    gap: 18px;
+  }
+
+  .product-card {
+    height: 240px;
+    border-radius: 12px;
+  }
+
+    .product-model {
+    font-size: 20px;   /* readable + desktop-like */
+  }
+
+  .product-subtitle {
+    font-size: 14px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .product-card {
+    height: 210px;
+  }
+
+  .product-model {
+    font-size: 14px;
+  }
 }

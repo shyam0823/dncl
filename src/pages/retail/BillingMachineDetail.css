@@ -291,3 +291,139 @@ model-viewer {
     font-size: 28px;
   }
 }
+
+
+
+
+/* =====================================
+   RESPONSIVE FIX — BILLING DETAIL PAGE
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .billing-detail {
+    padding: 50px 24px;
+  }
+
+  .billing-top {
+    gap: 36px;
+  }
+
+  .billing-image-box {
+    padding: 24px;
+  }
+
+  .billing-image-box img {
+    max-width: 320px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .billing-detail {
+    margin-top: 70px;
+    padding: 40px 20px;
+  }
+
+  .billing-top {
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: left;
+  }
+
+  .billing-info h1 {
+    font-size: 26px;
+  }
+
+  .tabs {
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .billing-detail table {
+    font-size: 14px;
+  }
+
+  .billing-detail td {
+    padding: 14px 16px;
+  }
+
+  .download-actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .download-actions a {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .billing-detail {
+    margin-top: 60px;
+    padding: 32px 16px;
+  }
+
+  .billing-image-box {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .billing-image-box img {
+    max-width: 280px;
+  }
+
+  .billing-info h1 {
+    font-size: 24px;
+  }
+
+  .billing-subtitle {
+    font-size: 15px;
+  }
+
+  .tabs {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .tabs button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .billing-detail table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .feature-list li {
+    font-size: 14px;
+  }
+
+  .model-card {
+    min-height: 380px;
+    padding: 20px;
+  }
+
+  model-viewer {
+    height: 320px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .billing-info h1 {
+    font-size: 22px;
+  }
+
+  .billing-image-box img {
+    max-width: 250px;
+  }
+
+  .model-section h2 {
+    font-size: 22px;
+  }
+}

@@ -57,66 +57,48 @@ export default function Support() {
     }
   };
 
-
   const isValidEmail = (email) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-};
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
-  const handleRaiseTicket = async () => {
-  if (!name.trim()) {
-    alert("Please enter your full name");
-    return;
-  }
-
-if (!email.trim()) {
-  setEmailError("Email is required");
-  return;
-}
-
-if (!isValidEmail(email)) {
-  setEmailError("Please enter a valid email address");
-  return;
-}
-
-
-  if (!mobile || !isValidPhoneNumber(mobile)) {
-    setPhoneError("Please enter a valid mobile number");
-    return;
-  }
-
-  if (!barcode.trim()) {
-    alert("Please enter a valid barcode");
-    return;
-  }
-
-  try {
-    const res = await fetch("/api/support", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        mobile,
-        barcode
-      })
-    });
-
-    if (!res.ok) {
-      alert("Failed to raise ticket. Try again.");
+  const handleRaiseTicket = () => {
+    if (!name.trim()) {
+      alert("Please enter your full name");
       return;
     }
 
-    setTicketRaised(true);
-  } catch (err) {
-    alert("Server error. Please try later.");
-  }
-};
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      return;
+    }
 
+    if (!isValidEmail(email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
+    if (!mobile || !isValidPhoneNumber(mobile)) {
+      setPhoneError("Please enter a valid mobile number");
+      return;
+    }
+
+    if (!barcode.trim()) {
+      alert("Please enter a valid barcode");
+      return;
+    }
+
+    // ✅ FRONTEND ONLY — NO BACKEND
+    setTicketRaised(true);
+  };
 
   return (
     <>
       {/* ================= TICKET SECTION ================= */}
-      <section className="ticket-wrapper page-offset">
+     <section
+  className="ticket-wrapper page-offset"
+  id="raise-ticket"
+>
+
         <div className="ticket-container">
 
           <h3 className="ticket-title">
@@ -136,22 +118,20 @@ if (!isValidEmail(email)) {
               onChange={(e) => setName(e.target.value)}
             />
 
-<input
-  type="email"
-  placeholder="Enter Email Address"
-  value={email}
-  onChange={(e) => {
-    setEmail(e.target.value);
-    setEmailError("");
-  }}
-  className={emailError ? "error" : ""}
-/>
+            <input
+              type="email"
+              placeholder="Enter Email Address"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError("");
+              }}
+              className={emailError ? "error" : ""}
+            />
 
-{emailError && (
-  <span className="error-text">{emailError}</span>
-)}
-
-
+            {emailError && (
+              <span className="error-text">{emailError}</span>
+            )}
 
             <PhoneInput
               international
@@ -244,7 +224,7 @@ if (!isValidEmail(email)) {
       </section>
 
       {/* ================= CONTACT SUPPORT ================= */}
-    <section className="support-wrapper" id="contact-support">
+      <section className="support-wrapper" id="contact-support">
         <div className="support-container">
 
           <div className="support-left">
@@ -267,64 +247,65 @@ if (!isValidEmail(email)) {
               <a href="tel:9448850905">+91 94488 50905</a>
             </div>
           </div>
-<div className="support-form-card">
-  <h2>Need support?</h2>
 
-  <form
-    className="support-form"
-    onSubmit={(e) => {
-      e.preventDefault();
+          <div className="support-form-card">
+            <h2>Need support?</h2>
 
-      const form = e.target;
-      const firstName = form.firstName.value;
-      const lastName = form.lastName.value;
-      const email = form.email.value;
-      const message = form.message.value;
+            <form
+              className="support-form"
+              onSubmit={(e) => {
+                e.preventDefault();
 
-      const mailtoLink = `
+                const form = e.target;
+                const firstName = form.firstName.value;
+                const lastName = form.lastName.value;
+                const email = form.email.value;
+                const message = form.message.value;
+
+                const mailtoLink = `
 mailto:sales@dncltech.com
 ?subject=Support Request from ${firstName} ${lastName}
 &body=
 Name: ${firstName} ${lastName}%0D%0A
 Email: ${email}%0D%0A%0D%0A
 Message:%0D%0A${message}
-      `.replace(/\s/g, "");
+                `.replace(/\s/g, "");
 
-      window.location.href = mailtoLink;
-    }}
-  >
-    <div className="form-row">
-      <input
-        type="text"
-        name="firstName"
-        placeholder="First name"
-        required
-      />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Last name"
-        required
-      />
-    </div>
+                window.location.href = mailtoLink;
+              }}
+            >
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                  required
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                  required
+                />
+              </div>
 
-    <input
-      type="email"
-      name="email"
-      placeholder="Email address"
-      required
-    />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                required
+              />
 
-    <textarea
-      name="message"
-      placeholder="How can we help you?"
-      rows="4"
-      required
-    />
+              <textarea
+                name="message"
+                placeholder="How can we help you?"
+                rows="4"
+                required
+              />
 
-    <button type="submit">Submit</button>
-  </form>
-</div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
 
         </div>
       </section>

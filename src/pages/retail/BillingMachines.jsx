@@ -4,24 +4,25 @@ import "./BillingMachines.css";
 
 export default function BillingMachines() {
   return (
-    <section className="retail-wrapper">
-      <h1>Billing Machines</h1>
+    <section className="billing-section">
+      <h2 className="billing-title">
+        <span className="title-black">Billing</span>{" "}
+        <span className="title-blue">Machines</span>
+      </h2>
 
-      <div className="retail-grid">
+      <div className="billing-wrapper">
         {BillingMachineData.map((item) => (
           <Link
             key={item.id}
             to={`/retail/billing/${item.id}`}
-            className="retail-card"
+            className="billing-card"
           >
-            <div className="retail-image-wrapper">
-              <img src={item.image} alt={item.title} />
-            </div>
+            <img src={item.image} alt={item.title} />
 
-            <div className="retail-content">
-              <h3>{item.title}</h3>
-              <p>{item.subtitle}</p>
-
+            {/* OVERLAY – SAME AS POS */}
+            <div className="billing-overlay">
+              <p className="billing-model">{item.title}</p>
+              <p className="billing-subtitle">{item.subtitle}</p>
             </div>
           </Link>
         ))}

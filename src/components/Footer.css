@@ -3,10 +3,11 @@
 ========================= */
 
 .dncl-footer {
-  background: #f2f2f2;
+  background: #08213c;
   font-family: inherit;
-  color: #000000;
+  color: #faf7f7;
 }
+
 
 /* REMOVE OVERLAY COMPLETELY */
 .dncl-footer::before {
@@ -23,9 +24,11 @@
   padding: 80px 32px 50px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.2fr;
+  gap: 40px;
 }
+
+
 
 /* =========================
    BRAND
@@ -53,16 +56,28 @@
    CONTACT
 ========================= */
 
-.dncl-footer-contact-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 16px;
-  margin-bottom: 14px;
+/* CONTACT COLUMN SPACING */
+.dncl-footer-contact {
+  gap: 18px;              /* ⬅️ space between rows */
 }
 
-.dncl-footer-contact-item svg {
-  color: BLACK;   
+/* EACH CONTACT ROW */
+.dncl-footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* EMAIL LINK STYLE */
+.dncl-footer-contact-item a {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dncl-footer-contact-item a:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 
@@ -80,17 +95,17 @@
 
 
 .dncl-footer-social a {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: #000000;      /* ✅ BLACK BG */
+  background: #000000;      /*  BLACK BG */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .dncl-footer-social svg {
-  color: #ffffff;           /* ✅ WHITE ICONS */
+  color: #ffffff;           /*  WHITE ICONS */
 }
 
 
@@ -111,11 +126,13 @@
   opacity: 0.9;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+.dncl-footer-contact-item,
+.dncl-footer-contact-item * {
+  line-height: normal !important;
+}
 
-@media (max-width: 900px) {
+
+@media (max-width: 600px) {
   .dncl-footer-container {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -130,14 +147,41 @@
     justify-content: center;
   }
 }
+
+
+.dncl-footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.dncl-footer-col h5 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
 /* ================= FORCE FOOTER TEXT BLACK ================= */
+.dncl-footer-follow {
+  align-items: flex-start;
+}
+
+.dncl-footer-social {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dncl-footer-makeinindia {
+  display: flex;
+  justify-content: flex-start;
+}
 
 
 .dncl-footer-follow {
   display: flex;
   flex-direction: column;
-  align-items: center;      /* ✅ CENTER COLUMN */
-  text-align: center;
+  gap: 16px;
+  align-items: flex-start;
 }
 
 
@@ -152,7 +196,7 @@
 .dncl-footer h5,
 .dncl-footer p,
 .dncl-footer span {
-  color: #000000;
+  color: #fefcfc;
   opacity: 1;
 }
 
@@ -160,19 +204,330 @@
    FOOTER BRAND IMAGE
 ================================ */
 .dncl-footer-brand {
-  margin-bottom: 18px;
+  display: flex;
+  justify-content: flex-start;  /* ⬅ MOVE LEFT */
+  align-items: flex-start;
+  margin-bottom: 28px;
 }
 
+
+
 .dncl-footer-brand img {
-  max-width: 180px;      /* adjust if needed */
+  max-width: 260px;
   width: 100%;
   height: auto;
   display: block;
 }
 
+
+/* =========================
+   LEFT BRAND COLUMN ALIGNMENT
+========================= */
+
+.dncl-footer-col:first-child {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.dncl-footer-address {
+  margin-top: 12px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+.dncl-footer-contact-item,
+.dncl-footer-link,
+.dncl-footer p,
+.dncl-footer span {
+  font-size: 15px;      /* ⬅️ Slightly smaller than headings */
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.dncl-footer-support .dncl-footer-link {
+  margin-bottom: 14px;
+}
+
+
+
+
 /* MOBILE ADJUSTMENT */
 @media (max-width: 600px) {
   .dncl-footer-brand img {
     max-width: 150px;
+  }
+}
+
+
+
+.dncl-footer h5 {
+  font-size: 18px;          /* ⬅️ Bigger */
+  font-weight: 700;         /* ⬅️ Bold */
+  margin-bottom: 18px;      /* ⬅️ Space below heading */
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+
+
+/* ===============================
+   FOOTER – MAKE IN INDIA BADGE
+   (isolated from header styles)
+================================ */
+
+.dncl-footer-makeinindia {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.dncl-footer-makeinindia img {
+  max-width: 220px;   /* ✅ NORMAL SIZE */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+
+/* =====================================
+   RESPONSIVE FIX — FOOTER (CLEAN & SAFE)
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .dncl-footer-container {
+    padding: 60px 24px 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .dncl-footer-follow {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .dncl-footer-social {
+    justify-content: flex-start;
+  }
+}
+
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .dncl-footer-container {
+    grid-template-columns: 1fr;
+    padding: 50px 20px 36px;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .dncl-footer-col:first-child {
+    align-items: center;
+    text-align: center;
+  }
+
+  .dncl-footer-brand {
+    justify-content: center;
+  }
+
+  .dncl-footer-brand img {
+    max-width: 180px;
+  }
+
+  .dncl-footer-social {
+    justify-content: center;
+  }
+
+  .dncl-footer-contact-item {
+    justify-content: center;
+  }
+
+  .dncl-footer-bottom {
+    font-size: 12px;
+    padding: 16px;
+  }
+
+  .dncl-footer-makeinindia img {
+    max-width: 160px;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .dncl-footer h5 {
+    font-size: 16px;
+  }
+
+  .dncl-footer p,
+  .dncl-footer span,
+  .dncl-footer-link {
+    font-size: 14px;
+  }
+
+  .dncl-footer-brand img {
+    max-width: 150px;
+  }
+}
+
+
+/* ===============================
+   MOBILE — CENTER FOLLOW US + ICONS + LION
+================================ */
+
+@media (max-width: 600px) {
+
+  /* Center the entire Follow Us column */
+  .dncl-footer-follow {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Center social icons row */
+  .dncl-footer-social {
+    justify-content: center;
+  }
+
+  /* Ensure each icon stays circular and centered */
+  .dncl-footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Center Make in India (Lion) badge */
+  .dncl-footer-makeinindia {
+    justify-content: center;
+  }
+
+  .dncl-footer-makeinindia img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+
+
+
+/* ===============================
+   FOOTER LINKS — SINGLE SOURCE
+================================ */
+
+.dncl-footer-link {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #cfcfcf;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.dncl-footer-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+/* ===============================
+   ALIGN FOLLOW US NEXT TO ABOUT
+================================ */
+
+
+
+/* Stack About + Follow Us vertically */
+.dncl-footer-about {
+  margin-bottom: 28px;
+}
+
+
+
+
+
+/* ===============================
+   MOBILE — STACK ALL FOOTER COLUMNS
+================================ */
+
+@media (max-width: 768px) {
+  .dncl-footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .dncl-footer-col {
+    align-items: center;
+  }
+
+  .dncl-footer-social {
+    justify-content: center;
+  }
+
+  .dncl-footer-makeinindia {
+    justify-content: center;
+  }
+}
+
+
+
+/* ===============================
+   FINAL MOBILE FOOTER FIX
+=============================== */
+@media (max-width: 768px) {
+
+  .dncl-footer-container {
+    grid-template-columns: 1fr;
+    padding: 40px 16px 32px;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .dncl-footer-col {
+    align-items: center;
+  }
+
+  /* Brand */
+  .dncl-footer-brand {
+    justify-content: center;
+  }
+
+  .dncl-footer-brand img {
+    max-width: 160px;
+  }
+
+  /* Contact rows */
+  .dncl-footer-contact-item {
+    justify-content: center;
+  }
+
+  /* Follow Us */
+  .dncl-footer-follow {
+    align-items: center;
+  }
+
+  .dncl-footer-social {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Make in India */
+  .dncl-footer-makeinindia {
+    justify-content: center;
+  }
+
+  .dncl-footer-makeinindia img {
+    max-width: 150px;
+    margin: 0 auto;
+  }
+
+  /* Bottom bar */
+  .dncl-footer-bottom {
+    font-size: 12px;
+    padding: 14px;
   }
 }

@@ -103,3 +103,75 @@
 .cta:hover {
   background: #c62828;
 }
+
+
+
+/* =====================================
+   RESPONSIVE FIX — HEADER + NAV
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .header-inner {
+    padding: 12px 24px;
+  }
+
+  .nav {
+    gap: 22px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .mega-menu {
+    width: 600px;
+    left: -60px;
+    gap: 20px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .nav {
+    display: none; /* hide desktop nav */
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+
+  /* prevent hover dropdown issues on touch */
+  .dropdown:hover .dropdown-menu,
+  .dropdown:hover .mega-menu {
+    display: none;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .header-inner {
+    padding: 10px 16px;
+  }
+
+  .logo img {
+    height: 34px;
+  }
+
+  .cta {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .logo img {
+    height: 30px;
+  }
+
+  .cta {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

@@ -3,34 +3,35 @@ import { Link } from "react-router-dom";
 
 export default function CategoryCard({ title, products, path }) {
   return (
-    <Link to={path} className="category-link">
-      <div className="category-card">
+    <div className="category-card">
 
-        {/* TITLE */}
-        <h3 className="category-title">{title}</h3>
+      {/* TITLE */}
+      <h3 className="category-title">{title}</h3>
 
-        <div className="category-images">
-         {products.map((product, index) => (
-  <div key={index} className="product-card">
-    <img src={product.image} alt={product.model} />
+      <div className="category-images">
+        {products.map((product, index) => (
+          <Link
+            to={path}
+            key={index}
+            className="product-card"
+          >
+            {/* IMAGE */}
+            <img src={product.image} alt={product.model} />
 
-    <p className="product-model">
-      {product.model}
-    </p>
+            {/* OVERLAY (BOTTOM 50%) */}
+            <div className="product-overlay">
+              <p className="product-model">{product.model}</p>
 
-    {/* ✅ ADD THIS LINE */}
-    {product.subtitle && (
-      <span className="product-subtitle">
-        {product.subtitle}
-      </span>
-    )}
-    
-  </div>
-))}
-
-        </div>
-
+              {product.subtitle && (
+                <span className="product-subtitle">
+                  {product.subtitle}
+                </span>
+              )}
+            </div>
+          </Link>
+        ))}
       </div>
-    </Link>
+
+    </div>
   );
 }

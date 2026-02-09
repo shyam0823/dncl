@@ -293,3 +293,251 @@
   height: 3px;
   background: blue;
 }
+
+
+/* =====================================
+   RESPONSIVE FIX — POS DETAIL PAGE
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .pos-detail {
+    padding: 50px 24px;
+  }
+
+  .pos-top {
+    gap: 36px;
+  }
+
+  .pos-image-box {
+    padding: 24px;
+  }
+
+  .pos-info h1 {
+    font-size: 32px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .pos-detail {
+    margin-top: 70px;
+    padding: 40px 20px;
+  }
+
+  .pos-top {
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: left;
+  }
+
+  .tabs {
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .pos-detail table {
+    font-size: 14px;
+  }
+
+  .pos-detail td {
+    padding: 14px 16px;
+  }
+
+  .pos-highlights li {
+    font-size: 15px;
+  }
+
+  .model-card {
+    min-height: 420px;
+    padding: 20px;
+  }
+
+  .model-viewer {
+    min-height: 360px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .pos-detail {
+    margin-top: 60px;
+    padding: 32px 16px;
+  }
+
+  .pos-info h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .tabs {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .tabs button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .pos-detail table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .pos-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .model-card {
+    min-height: 360px;
+  }
+
+  .model-viewer {
+    min-height: 300px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .pos-info h1 {
+    font-size: 22px;
+  }
+
+  .model-section h2 {
+    font-size: 22px;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+
+  .pos-detail {
+    margin-top: 56px;
+    padding: 28px 14px;
+  }
+
+  /* TOP SECTION */
+  .pos-top {
+    gap: 28px;
+  }
+
+  .pos-image-box {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .pos-model {
+    font-size: 13px;
+  }
+
+  .pos-info h1 {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .pos-highlights li {
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  /* TABS */
+  .tabs {
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .tabs button {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  /* TABLE */
+  .pos-detail table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .pos-detail td {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  /* 3D MODEL */
+  .model-section {
+    margin-top: 40px;
+  }
+
+  .model-section h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .model-card {
+    min-height: 300px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .model-viewer {
+    min-height: 260px;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .pos-detail {
+    padding: 44px 22px;
+  }
+
+  .pos-top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .pos-image-box {
+    padding: 24px;
+  }
+
+  .pos-info h1 {
+    font-size: 30px;
+  }
+
+  .tabs {
+    gap: 24px;
+  }
+
+  .pos-detail td {
+    font-size: 15px;
+  }
+
+  .model-card {
+    min-height: 420px;
+  }
+
+  .model-viewer {
+    min-height: 360px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+
+  .pos-top {
+    grid-template-columns: minmax(400px, 480px) 1fr;
+  }
+
+  .pos-info h1 {
+    font-size: 36px;
+  }
+
+  .model-card {
+    min-height: 520px;
+  }
+}

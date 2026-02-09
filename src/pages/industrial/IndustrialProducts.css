@@ -45,3 +45,87 @@
 }
 
 
+
+
+
+/* =====================================
+   RESPONSIVE FIX — INDUSTRIAL SECTION
+===================================== */
+
+/* LARGE TABLETS */
+@media (max-width: 1024px) {
+  .industrial-wrapper {
+    padding: 80px 24px 50px;
+  }
+
+  .industrial-wrapper h1 {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  .industrial-grid {
+    gap: 28px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .industrial-wrapper {
+    padding: 70px 20px 44px;
+  }
+
+  .industrial-wrapper h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .industrial-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .industrial-card {
+    padding: 24px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .industrial-wrapper {
+    padding: 60px 16px 40px;
+  }
+
+  .industrial-wrapper h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .industrial-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .industrial-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .industrial-card h3 {
+    font-size: 18px;
+  }
+
+  .industrial-card p {
+    font-size: 14px;
+  }
+}
+
+/* VERY SMALL DEVICES */
+@media (max-width: 380px) {
+  .industrial-wrapper h1 {
+    font-size: 22px;
+  }
+
+  .industrial-card {
+    padding: 18px;
+  }
+}

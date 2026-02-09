@@ -1,21 +1,28 @@
 import CategoryCard from "./CategoryCard";
-import productCategories from "../data/ProductCategory";
+import productCategories from "../data/productCategory";
 import "./OurProducts.css";
 
 export default function OurProducts() {
   return (
-    <section className="products-section">
-      <h2 className="products-title">Our Products</h2>
+    <section className="products-section page-offset">
+      <div className="products-container">
 
-      <div className="products-grid">
-        {productCategories.map((category) => (
-          <CategoryCard
-            key={category.id}
-            title={category.title}
-            products={category.products}
-            path={category.path}
-          />
-        ))}
+        <h1 className="products-title">
+          <span className="title-black">Our</span>{" "}
+          <span className="title-blue">Products</span>
+        </h1>
+
+        <div className="products-wrapper">
+          {productCategories.map((category) => (
+            <CategoryCard
+              key={category.id}
+              title={category.title}
+              products={category.products}
+              path={category.path}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );

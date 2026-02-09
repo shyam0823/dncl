@@ -15,56 +15,73 @@ function DataLoggerDetail() {
   }, []);
 
   useEffect(() => {
-  if (!product?.model && tab === "model") {
-    setTab("specs");
-  }
-}, [product, tab]);
-
+    if (!product?.model && tab === "model") {
+      setTab("specs");
+    }
+  }, [product, tab]);
 
   if (!product) return <h2 style={{ padding: 40 }}>Product not found</h2>;
 
   return (
-    <section className="fieldio-detail-data">
-      <h1>
-        {product.title} – {product.subtitle}
+    <section className="pop-section">
+      {/* ================= TITLE ================= */}
+      <h1 className="pop-title">
+        <span className="title-black">{product.title}</span>{" "}
+        <span className="title-blue">{product.subtitle}</span>
       </h1>
 
-      <img src={product.image} alt={product.subtitle} />
+      {/* ================= CARD ================= */}
+      <div className="pop-card">
+        <img
+          src={product.image}
+          alt={product.subtitle}
+          className="pop-image"
+        />
 
-      <div className="tabs">
+        <div className="pop-overlay">
+          {product.modelNumber && (
+            <div className="pop-model">{product.modelNumber}</div>
+          )}
+          <div className="pop-subtitle">{product.subtitle}</div>
+        </div>
+      </div>
+
+      {/* ================= TABS ================= */}
+      <div className="pop-tabs">
         <button
           className={tab === "specs" ? "active" : ""}
           onClick={() => setTab("specs")}
         >
           Specifications
         </button>
+
         <button
-  className={tab === "features" ? "active" : ""}
-  onClick={() => setTab("features")}
->
-  Features
-</button>
+          className={tab === "features" ? "active" : ""}
+          onClick={() => setTab("features")}
+        >
+          Features
+        </button>
 
-{product.model && (
-  <button
-    className={tab === "model" ? "active" : ""}
-    onClick={() => setTab("model")}
-  >
-    3D Model
-  </button>
-)}
+        {product.model && (
+          <button
+            className={tab === "model" ? "active" : ""}
+            onClick={() => setTab("model")}
+          >
+            3D Model
+          </button>
+        )}
 
-<button
-  className={tab === "download" ? "active" : ""}
-  onClick={() => setTab("download")}
->
-  Downloads
-</button>
-
+        <button
+          className={tab === "download" ? "active" : ""}
+          onClick={() => setTab("download")}
+        >
+          Downloads
+        </button>
       </div>
 
+      {/* ================= SPECIFICATIONS ================= */}
       {tab === "specs" && (
-        <table>
+        <table className="pop-table">
           <tbody>
             {product.specifications.map((row, i) => (
               <tr key={i}>
@@ -76,48 +93,39 @@ function DataLoggerDetail() {
         </table>
       )}
 
+      {/* ================= FEATURES ================= */}
       {tab === "features" && (
-        <ul>
+        <ul className="pop-features">
           {product.features.map((f, i) => (
             <li key={i}>{f}</li>
           ))}
         </ul>
       )}
 
-
       {/* ================= 3D MODEL ================= */}
-{tab === "model" && product.model && (
-  <div className="model-section">
-    <h2>3D Model</h2>
+      {tab === "model" && product.model && (
+        <div className="pop-model-section">
+          <ModelViewer model={product.model} />
+        </div>
+      )}
 
-    <div className="model-card">
-      <ModelViewer model={product.model} />
-    </div>
-  </div>
-)}
+      {/* ================= DOWNLOAD ================= */}
+      {tab === "download" && (
+        <div className="pop-download">
+          <a
+            href={product.download}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pop-view"
+          >
+            View Datasheet
+          </a>
 
-
-     {tab === "download" && (
-  <div className="download-actions">
-    <a
-      href={product.download}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="view-btn"
-    >
-      View Datasheet
-    </a>
-
-    <a
-      href={product.download}
-      download
-      className="download-btn"
-    >
-      Download Datasheet
-    </a>
-  </div>
-)}
-
+          <a href={product.download} download className="pop-download-btn">
+            Download Datasheet
+          </a>
+        </div>
+      )}
     </section>
   );
 }
