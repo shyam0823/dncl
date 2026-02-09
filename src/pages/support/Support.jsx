@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import {
   parsePhoneNumber,
@@ -14,6 +16,20 @@ import {
 import "./Support.css";
 
 export default function Support() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }
+  }, [location]);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -94,11 +110,10 @@ export default function Support() {
   return (
     <>
       {/* ================= TICKET SECTION ================= */}
-     <section
-  className="ticket-wrapper page-offset"
-  id="raise-ticket"
->
-
+      <section
+        className="ticket-wrapper page-offset"
+        id="raise-ticket"
+      >
         <div className="ticket-container">
 
           <h3 className="ticket-title">
@@ -163,7 +178,6 @@ export default function Support() {
           {ticketRaised && (
             <div className="ticket-status-card">
 
-              {/* HEADER */}
               <div className="ticket-status-header">
                 <h3>
                   ORDER <span className="order-id">#DNCL-2345</span>
@@ -173,7 +187,6 @@ export default function Support() {
                 </p>
               </div>
 
-              {/* PROGRESS BAR */}
               <div className="progress-track">
                 {steps.map((step, index) => {
                   const Icon = step.icon;
@@ -228,6 +241,7 @@ export default function Support() {
         <div className="support-container">
 
           <div className="support-left">
+
             <h3>
               Contact <span>Support</span>
             </h3>
@@ -246,6 +260,7 @@ export default function Support() {
               <h3>Phone</h3>
               <a href="tel:9448850905">+91 94488 50905</a>
             </div>
+
           </div>
 
           <div className="support-form-card">

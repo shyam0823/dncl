@@ -473,17 +473,7 @@
   margin-bottom: 36px;
 }
 
-/* DOT — PERFECTLY ON LINE */
-.dncl-journey-item .dot {
-  position: absolute;
-  left: 18px;                /* 🔥 center on line */
-  top: 10px;
-  width: 14px;
-  height: 14px;
-  background: #1e40ff;
-  border-radius: 50%;
-  z-index: 2;
-}
+
 
 /* ICON CIRCLE */
 .dncl-journey-item .icon {

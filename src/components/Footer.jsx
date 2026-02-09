@@ -1,6 +1,7 @@
 import "./Footer.css";
 import lionBanner from "../assets/madein.png";
 import footerLogo from "../assets/footernew.png";
+import { Link } from "react-router-dom";
 import {
   Facebook,
   Linkedin,
@@ -35,27 +36,37 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* ================= MIDDLE ================= */}
-        <div className="dncl-footer-col dncl-footer-contact">
-          <h5>Contact</h5>
+       {/* ================= MIDDLE ================= */}
+<div className="dncl-footer-col dncl-footer-contact">
+  <h5>Contact</h5>
 
-<div className="dncl-footer-contact-item">
-  <Mail size={18} />
-  <a href="mailto:sales@dncltech.com">
-    sales@dncltech.com
-  </a>
+  {/* Navigate to Contact Support section */}
+  <Link
+    to="/support#contact-support"
+    className="dncl-footer-link"
+  >
+    Contact Support
+  </Link>
+
+  <div className="dncl-footer-contact-item">
+    <Mail size={18} />
+    <a href="mailto:sales@dncltech.com">
+      sales@dncltech.com
+    </a>
+  </div>
+
+  <div className="dncl-footer-contact-item">
+    <Phone size={18} />
+    <a href="tel:+917358829622">
+      +91 73588 29622
+    </a>
+  </div>
+
+  <div className="dncl-footer-contact-item">
+    <MapPin size={18} />
+    <span>Hosur</span>
+  </div>
 </div>
-
-          <div className="dncl-footer-contact-item">
-            <Phone size={18} />
-            <span>+91 7358829622</span>
-          </div>
-
-          <div className="dncl-footer-contact-item">
-            <MapPin size={18} />
-            <span>Hosur</span>
-          </div>
-        </div>
 
         {/* ================= SUPPORT ================= */}
      <div className="dncl-footer-col dncl-footer-support">

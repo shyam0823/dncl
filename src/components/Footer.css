@@ -52,32 +52,67 @@
   opacity: 0.85;
 }
 
-/* =========================
-   CONTACT
-========================= */
+/* ================= CONTACT COLUMN ================= */
 
-/* CONTACT COLUMN SPACING */
-.dncl-footer-contact {
-  gap: 18px;              /* ⬅️ space between rows */
+.dncl-footer-contact h5 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
 }
 
-/* EACH CONTACT ROW */
+/* Contact Support link */
+.dncl-footer-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.dncl-footer-link:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+/* Contact item row */
 .dncl-footer-contact-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* EMAIL LINK STYLE */
+/* Icons */
+.dncl-footer-contact-item svg {
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+/* Links inside contact */
 .dncl-footer-contact-item a {
-  color: #cfcfcf;
+  color: inherit;
   text-decoration: none;
-  font-weight: 500;
 }
 
 .dncl-footer-contact-item a:hover {
   color: #ffffff;
   text-decoration: underline;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .dncl-footer-contact {
+    text-align: center;
+  }
+
+  .dncl-footer-contact-item {
+    justify-content: center;
+  }
 }
 
 
