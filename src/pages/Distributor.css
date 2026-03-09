@@ -2,7 +2,7 @@
 
 .distributor-body-gap {
   padding-top: 100px;        /* header height */
-  background: #d4e9ff;       /* ADD THIS */
+  background: white;      /* ADD THIS */
 }
 
 .page-offset {
@@ -21,7 +21,7 @@
 /* ================= WRAPPER ================= */
 
 .distributor-wrapper {
-  background: #d4e9ff;
+  background:white;
 }
 
 /* ================= LAYOUT ================= */

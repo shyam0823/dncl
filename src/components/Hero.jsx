@@ -37,7 +37,7 @@ export default function Hero() {
       className="dncl-hero"
       style={{ backgroundImage: `url(${images[currentImage]})` }}
     >
-      {/* ✅ MOBILE IMAGE (VISIBLE ONLY ON MOBILE) */}
+      {/* MOBILE IMAGE (VISIBLE ONLY ON MOBILE) */}
       <div className="dncl-hero-mobile-image">
         <img
           src={images[currentImage]}

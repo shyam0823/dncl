@@ -1,6 +1,6 @@
 /* ================= SECTION ================= */
 .billing-section {
-  background: #d4e9ff;
+  background:white;
   padding: 120px clamp(24px, 4vw, 60px);
 }
 

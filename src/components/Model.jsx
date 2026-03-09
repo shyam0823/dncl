@@ -2,7 +2,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Model({ modelPath, scale = 1 }) {
 
-  // 🛑 Never attempt loading if path missing
+  //  Never attempt loading if path missing
   if (!modelPath) return null;
 
   const { scene } = useGLTF(modelPath);
@@ -11,7 +11,7 @@ export default function Model({ modelPath, scale = 1 }) {
     <primitive
       object={scene}
       dispose={null}
-      scale={scale}   // ✅ allows per-model scaling
+      scale={scale}   
       castShadow
       receiveShadow
     />

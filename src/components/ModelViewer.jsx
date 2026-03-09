@@ -9,7 +9,7 @@ import {
 } from "@react-three/drei";
 import Model from "./Model";
 
-/* 🔥 Simple Loader (prevents blank screen) */
+/*  Simple Loader (prevents blank screen) */
 function Loader() {
   return (
     <Html center>
@@ -22,14 +22,14 @@ function Loader() {
 
 export default function ModelViewer({ model, scale = 1 }) {
 
-  // ✅ HARD STOP — prevents ALL loader crashes
+  //  HARD STOP — prevents ALL loader crashes
   if (!model) return null;
 
   return (
     <div className="model-viewer">
       <Canvas
         shadows
-        dpr={[1, 1.8]}   // 🔥 prevents GPU overload on 4K screens
+        dpr={[1, 1.8]}   //  prevents GPU overload on 4K screens
         camera={{
           fov: 38,
           near: 0.1,
@@ -37,18 +37,18 @@ export default function ModelViewer({ model, scale = 1 }) {
           position: [0, 1, 3], // safer default
         }}
       >
-        {/* 🌎 Better lighting balance */}
+        {/*  Better lighting balance */}
         <ambientLight intensity={0.7} />
 
         <directionalLight
           position={[5, 8, 5]}
           intensity={1.4}
           castShadow
-          shadow-mapSize-width={1024}   // 🔥 better performance
+          shadow-mapSize-width={1024}   //  better performance
           shadow-mapSize-height={1024}
         />
 
-        {/* 🔥 Suspense prevents crashes while loading */}
+        {/*  Suspense prevents crashes while loading */}
         <Suspense fallback={<Loader />}>
           
           {/* AUTO FIT MODEL */}

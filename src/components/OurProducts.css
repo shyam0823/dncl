@@ -1,11 +1,11 @@
 .products-section {
-  background: #d4e9ff;
+  background:white;
 
 }
 
 /* SAME FEEL AS distributor-container */
 .products-container {
-  max-width: 1440px;          /* 🔥 wider canvas */
+  max-width: 1440px;          /*  wider canvas */
   margin: auto;
   padding: 0 clamp(24px, 4vw, 60px);
 }

@@ -163,6 +163,23 @@
     font-size: 14px;
   }
 }
+.home-intro{
+padding:60px 20px;
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+.home-intro h1{
+font-size:36px;
+margin-bottom:15px;
+}
+
+.home-intro p{
+font-size:18px;
+color:#555;
+line-height:1.6;
+}
 
 /* VERY SMALL DEVICES */
 @media (max-width: 380px) {

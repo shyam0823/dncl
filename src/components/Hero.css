@@ -561,3 +561,26 @@
   }
 }
 
+.dncl-hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 120px;   /* prevents header overlap */
+}
+
+.dncl-hero-left {
+  max-width: 650px;
+}
+
+.dncl-hero-left h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.dncl-hero-left p {
+  margin-top: 18px;
+  font-size: 18px;
+  color: #333;
+}

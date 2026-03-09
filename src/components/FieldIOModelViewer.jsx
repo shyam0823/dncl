@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, useGLTF, Bounds } from "@react-three/drei";
 import * as THREE from "three";
 
-/* ✅ Model loader – only rendered when model exists */
+/*  Model loader – only rendered when model exists */
 function Model({ model }) {
   const { scene } = useGLTF(model);
 

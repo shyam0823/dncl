@@ -1,6 +1,6 @@
 /* ================= CATEGORY CONTAINER ================= */
 .category-card{
-  width: 100%;          /* 🔥 allow full container width */
+  width: 100%;          /* allow full container width */
 }
 
 .products-container {
@@ -10,9 +10,9 @@
 }
 
 
-/* 🔥 ADD SPACE BEFORE INDUSTRIAL SECTION */
+/*  ADD SPACE BEFORE INDUSTRIAL SECTION */
 .category-card + .category-card{
-  margin-top: 140px;   /* 👈 THIS FIXES THE GAP */
+  margin-top: 140px;   
 }
 
 /* ================= CATEGORY TITLE ================= */
