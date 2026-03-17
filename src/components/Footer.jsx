@@ -1,6 +1,6 @@
 import "./Footer.css";
 import lionBanner from "../assets/madein.png";
-import footerLogo from "../assets/footernew.png";
+import footerLogo from "../assets/WhiteMain.png";
 import { Link } from "react-router-dom";
 import {
   Facebook,
@@ -20,7 +20,7 @@ export default function Footer() {
         {/* ================= LEFT ================= */}
         <div className="dncl-footer-col">
           
-          {/* ✅ IMAGE LOGO INSTEAD OF TEXT */}
+          {/* IMAGE LOGO INSTEAD OF TEXT */}
           <div className="dncl-footer-brand">
             <img src={footerLogo} alt="DNCL Technologies" />
           </div>
@@ -57,8 +57,8 @@ export default function Footer() {
 
   <div className="dncl-footer-contact-item">
     <Phone size={18} />
-    <a href="tel:+917358829622">
-      +91 73588 29622
+    <a href="tel:+91 9187531610">
+      +91 91875 31610
     </a>
   </div>
 
@@ -100,9 +100,13 @@ export default function Footer() {
     About DNCL
   </Link>
 
-  <Link to="/careers" className="dncl-footer-link">
-    Careers
-  </Link>
+  <Link
+  to="/careers"
+  onClick={() => window.scrollTo(0, 0)}
+  className="dncl-footer-link"
+>
+  Careers
+</Link>
 </div>
 
 
@@ -115,7 +119,11 @@ export default function Footer() {
             <a href="https://www.linkedin.com/company/dncl-tech/" target="_blank" rel="noreferrer">
               <Linkedin size={18} />
             </a>
-            <a href="https://youtube.com/@dncltech5766" target="_blank" rel="noreferrer">
+            <a 
+              href="https://youtube.com/@dncltechnologiesindia?si=nux1nG1vLQqoL4Vm"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <Youtube size={18} />
             </a>
             <a href="https://www.instagram.com/dncltechnologies?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer">

@@ -163,13 +163,14 @@
   height: 82px;
   width: auto;
   object-fit: contain;
-  margin-left: 0;    /* ❌ remove negative margin */
+  margin-left: 0;    
 }
 
 /* ================= LOGO ================= */
 
-.logo-inner {
-  height: clamp(36px, 4vw, 74px);
+.logo-inner{
+  height:83px;   /* adjust size */
+  width:auto;
 }
 
 @media (max-width: 900px) {
@@ -197,6 +198,19 @@
 }
 
 
+.dncl-logo{
+  display:flex;
+  align-items:center;
+  margin-right:20px;   /* space between logo and nav */
+}
+
+.dncl-header-container{
+  padding-left:10px;   /* move whole header content left */
+}
+
+.dncl-header-container{
+  padding-left:0;
+}
 
 
 /* =====================================
@@ -470,3 +484,5 @@
     font-weight: 500;
   }
 }
+
+

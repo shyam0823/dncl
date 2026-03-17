@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import FieldInputData from "../../details/FieldInputData";
 import FieldIOModelViewer from "../../components/FieldIOModelViewer";
 
-// ✅ FIXED IMAGE IMPORTS (Vite way)
 import mqttImg from "/src/assets/mqtt.png";
 import diMoImg from "/src/assets/DI_MQTT.png";
 import doMqttImg from "/src/assets/do_mqtt.png";
@@ -29,6 +29,109 @@ export default function FieldIODetail() {
   const specRows = Object.values(product.specifications).flat();
 
   return (
+  <>
+<Helmet>
+
+<title>
+{product.title} Industrial Field IO Module Manufacturer India | DNCL Technologies
+</title>
+
+<p className="seo-text">
+DNCL Technologies manufactures Industrial Field IO modules used for
+digital input, digital output and analog signal monitoring in industrial
+automation systems. Our IO modules support MQTT communication and are
+designed for Industry 4.0 and remote monitoring applications.
+</p>
+
+<meta
+name="description"
+content={`${product.title} Industrial Field IO Module for digital input, digital output and analog signal monitoring with MQTT connectivity. DNCL Technologies manufactures automation IO modules for Industry 4.0 systems in India.`}
+/>
+
+<meta
+name="keywords"
+content={`${product.title} Field IO Module, Industrial IO module manufacturer India, Digital Input Module, Digital Output Module, Analog IO module, Industrial automation IO`}
+/>
+
+<link
+rel="canonical"
+href={`https://dncltech.com/industrial/field-io/${product.id}`}
+/>
+
+<meta property="og:title" content={`${product.title} Industrial Field IO Module`} />
+<meta property="og:type" content="product" />
+<meta property="og:image" content={product.image} />
+<meta
+property="og:url"
+content={`https://dncltech.com/industrial/field-io/${product.id}`}
+/>
+
+<meta
+property="og:description"
+content={`${product.title} industrial field IO module for digital input, digital output and analog signal monitoring used in industrial automation systems.`}
+/>
+
+{/* Product Schema */}
+
+<script type="application/ld+json">
+{JSON.stringify({
+"@context": "https://schema.org",
+"@type": "Product",
+"@id": `https://dncltech.com/industrial/field-io/${product.id}`,
+"name": product.title,
+"image": [product.image],
+"description": `${product.title} Industrial Field IO Module for digital input, digital output and analog signal monitoring used in industrial automation systems.`,
+"sku": product.modelNumber,
+"brand": {
+"@type": "Brand",
+"name": "DNCL Technologies"
+},
+"manufacturer": {
+"@type": "Organization",
+"name": "DNCL Technologies",
+"url": "https://dncltech.com"
+},
+"url": `https://dncltech.com/industrial/field-io/${product.id}`
+})}
+</script>
+
+{/* Breadcrumb Schema */}
+
+<script type="application/ld+json">
+{JSON.stringify({
+"@context": "https://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement":[
+{
+"@type":"ListItem",
+"position":1,
+"name":"Home",
+"item":"https://dncltech.com"
+},
+{
+"@type":"ListItem",
+"position":2,
+"name":"Industrial Products",
+"item":"https://dncltech.com/industrial-products"
+},
+{
+"@type":"ListItem",
+"position":3,
+"name":"Field IO Modules",
+"item":"https://dncltech.com/industrial/field-io"
+},
+{
+"@type":"ListItem",
+"position":4,
+"name":product.title,
+"item":`https://dncltech.com/industrial/field-io/${product.id}`
+}
+]
+})}
+</script>
+
+</Helmet>
+
     <section className="fieldio-detail-page">
       <div className="fieldio-top">
         <div className="fieldio-image-box">
@@ -146,5 +249,6 @@ export default function FieldIODetail() {
         </div>
       )}
     </section>
+    </>
   );
 }

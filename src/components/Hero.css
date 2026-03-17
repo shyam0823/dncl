@@ -1,6 +1,9 @@
 .dncl-hero {
   background-size: cover;
   background-position: center;
+  background-size: contain;          /* 🔥 NO CROPPING */
+  background-repeat: no-repeat;
+  background-position: left center;  /* 🔥 PRODUCT LEFT */
   color: #111;
   padding: clamp(80px, 10vw, 100px) clamp(16px, 3vw, 20px) clamp(40px, 6vw, 60px);
   min-height: 100vh;
@@ -15,6 +18,47 @@
   transition: background-image 0.5s ease;
 }
 
+
+/* BACKGROUND WRAPPER */
+.dncl-hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* IMAGE */
+/* DEFAULT */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* ACTIVE */
+.hero-bg-image.active {
+  opacity: 1;
+}
+
+/* 🔥 RETAIL IMAGE FIX (slide 0) */
+.slide-0 {
+  object-position: left center;   /* keep POS visible */
+}
+
+/* 🔥 INDUSTRIAL IMAGE */
+.slide-1 {
+  object-position: center center; /* normal */
+}
+
+/* ACTIVE IMAGE */
+.hero-bg-image.active {
+  opacity: 1;
+}
 
 
 /* LEFT */

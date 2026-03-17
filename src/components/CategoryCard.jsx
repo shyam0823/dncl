@@ -16,7 +16,11 @@ export default function CategoryCard({ title, products, path }) {
             className="product-card"
           >
             {/* IMAGE */}
-            <img src={product.image} alt={product.model} />
+            <img
+            src={product.image}
+            alt={`DNCL ${product.model} ${title}`}
+            loading="lazy"
+          />
 
             {/* OVERLAY (BOTTOM 50%) */}
             <div className="product-overlay">

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./Distributor.css";
+import { Helmet } from "react-helmet-async";
 
 export default function Distributor() {
 
@@ -12,8 +13,39 @@ export default function Distributor() {
   }, []);
 
 
-  return (
-    <section className="distributor-wrapper page-offset">
+return (
+<>
+  <Helmet>
+
+    <title>Become a Distributor | DNCL Technologies</title>
+
+    <meta
+      name="description"
+      content="Partner with DNCL Technologies as an authorized distributor for retail POS systems, billing machines and industrial automation products."
+    />
+
+    <link
+      rel="canonical"
+      href="https://dncltech.com/distributor"
+    />
+
+    <meta property="og:title" content="Become a Distributor | DNCL Technologies" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dncltech.com/distributor" />
+
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DNCL Technologies",
+        "url": "https://dncltech.com",
+        "description": "Become an authorized distributor for DNCL retail POS systems and industrial automation products."
+      })}
+    </script>
+
+  </Helmet>
+
+  <section className="distributor-wrapper page-offset">
       <div className="distributor-container">
 
         {/* LEFT CONTENT */}
@@ -146,5 +178,6 @@ export default function Distributor() {
 
       </div>
     </section>
+    </>
   );
 }

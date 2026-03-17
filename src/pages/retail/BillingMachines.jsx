@@ -26,7 +26,7 @@ export default function BillingMachines() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Product",
+            "@type":"ItemList",
             "name": "POS Billing Machines",
             "brand": "DNCL Technologies",
             "description":

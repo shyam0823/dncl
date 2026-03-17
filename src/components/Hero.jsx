@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./Hero.css";
-import heroBg from "../assets/retailban.jpg";
-import embeddedImg from "../assets/industrial.jpg";
+import heroBg from "../assets/RetailNew.jpg";
+import embeddedImg from "../assets/IndustrialNew.jpg";
 
 export default function Hero() {
   const images = [heroBg, embeddedImg];
@@ -33,38 +33,52 @@ export default function Hero() {
   };
 
   return (
-    <section
-      className="dncl-hero"
-      style={{ backgroundImage: `url(${images[currentImage]})` }}
-    >
-      {/* MOBILE IMAGE (VISIBLE ONLY ON MOBILE) */}
-      <div className="dncl-hero-mobile-image">
-        <img
-          src={images[currentImage]}
-          alt="DNCL Products"
-        />
-      </div>
+  <section className="dncl-hero">
 
-      <div className="dncl-hero-overlay" />
+  {/* BACKGROUND IMAGES (DESKTOP) */}
+  <div className="dncl-hero-bg">
+    {images.map((img, index) => (
+      <img
+      key={index}
+      src={img}
+      className={`hero-bg-image ${index === currentImage ? "active" : ""} slide-${index}`}
+      alt=""
+      loading="lazy"
+    />
+    ))}
+  </div>
 
-      {/* ARROWS (DESKTOP ONLY) */}
-      <button className="hero-arrow left" onClick={prevSlide}>
-        ❮
-      </button>
-      <button className="hero-arrow right" onClick={nextSlide}>
-        ❯
-      </button>
+  {/* MOBILE IMAGE */}
+  <div className="dncl-hero-mobile-image">
+    <img
+      src={images[currentImage]}
+      alt="DNCL Technologies Industrial Automation and Retail POS Products"
+      loading="lazy"
+    />
+  </div>
 
-      {/* DOTS */}
-      <div className="hero-dots">
-        {images.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${index === currentImage ? "active" : ""}`}
-            onClick={() => setCurrentImage(index)}
-          />
-        ))}
-      </div>
-    </section>
+  {/* OVERLAY */}
+  <div className="dncl-hero-overlay" />
+
+  {/* ARROWS */}
+  <button className="hero-arrow left" onClick={prevSlide}>
+    ❮
+  </button>
+  <button className="hero-arrow right" onClick={nextSlide}>
+    ❯
+  </button>
+
+  {/* DOTS */}
+  <div className="hero-dots">
+    {images.map((_, index) => (
+      <span
+        key={index}
+        className={`dot ${index === currentImage ? "active" : ""}`}
+        onClick={() => setCurrentImage(index)}
+      />
+    ))}
+  </div>
+
+</section>
   );
 }

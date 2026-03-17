@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import "./BookDemo.css";
 
 export default function BookDemo() {
@@ -10,8 +11,42 @@ export default function BookDemo() {
     setAnimate(true);
   }, []);
 
-  return (
-    <section className="bookdemo-section" id="book-demo">
+return (
+<>
+  <Helmet>
+
+    <title>Book a Demo | DNCL Technologies</title>
+
+    <meta
+      name="description"
+      content="Book a free demo of DNCL Technologies retail POS systems and industrial automation products. Download our company brochure."
+    />
+
+    <link
+      rel="canonical"
+      href="https://dncltech.com/book-demo"
+    />
+
+    <meta property="og:title" content="Book a Demo | DNCL Technologies" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dncltech.com/book-demo" />
+
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "DNCL Technologies Product Demo",
+        "provider": {
+          "@type": "Organization",
+          "name": "DNCL Technologies"
+        },
+        "url": "https://dncltech.com/book-demo"
+      })}
+    </script>
+
+  </Helmet>
+
+  <section className="bookdemo-section" id="book-demo">
       <div className="bookdemo-wrapper">
         <div className="bookdemo-container">
 
@@ -33,12 +68,10 @@ export default function BookDemo() {
               <input placeholder="Email Address" />
 
               <select>
-                <option>Download a Company Brochure</option>
-              </select>
-
-              <select>
-                <option>Types of Products for Demo</option>
-              </select>
+              <option value="">Types of Products for Demo</option>
+              <option value="retail">Retail Products</option>
+              <option value="industrial">Industrial Products</option>
+            </select>
 
               <input type="date" />
               <input type="time" />
@@ -52,11 +85,16 @@ export default function BookDemo() {
 
           {/* RIGHT – IMAGE */}
           <div className="bookdemo-image">
-            <img src="/Booking1.png" alt="Book Demo" />
+           <img
+            src="/Booking1.png"
+            alt="DNCL Technologies Product Demo for POS Systems and Industrial Automation"
+            loading="lazy"
+          />
           </div>
 
         </div>
       </div>
     </section>
+    </>
   );
 }

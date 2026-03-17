@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import BillingMachineData from "../../details/BillingMachineData";
 import ModelViewer from "../../components/ModelViewer";
 import "./BillingMachineDetail.css";
@@ -26,12 +27,50 @@ export default function BillingMachineDetail() {
   ].slice(0, 5);
 
   return (
-    <section className="billing-detail">
+    <>
+      {/* SEO */}
+      <Helmet>
+        <title>{product.title} Billing Machine | DNCL Technologies</title>
+
+        <meta
+          name="description"
+          content={`${product.title} POS billing machine for retail stores and supermarkets with fast billing and barcode scanning.`}
+        />
+
+        <link
+          rel="canonical"
+          href={`https://dncltech.com/retail/billing/${product.id}`}
+        />
+
+        <meta property="og:title" content={`${product.title} Billing Machine`} />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={`https://dncltech.com/retail/billing/${product.id}`} />
+
+        {/* PRODUCT SCHEMA */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.title,
+            brand: "DNCL Technologies",
+            model: product.modelNumber,
+            image: product.image,
+            description: "Retail POS billing machine for shops and supermarkets",
+            url: `https://dncltech.com/retail/billing/${product.id}`
+          })}
+        </script>
+      </Helmet>
+
+      <section className="billing-detail">
       
       {/* ================= TOP ================= */}
       <div className="billing-top">
         <div className="billing-image-box">
-          <img src={product.image} alt={product.title} />
+          <img
+          src={product.image}
+          alt={`DNCL ${product.title} POS Billing Machine`}
+          loading="lazy"
+        />
 
           <div className="billing-model">
             Model No: <strong>{product.modelNumber}</strong>
@@ -148,5 +187,6 @@ export default function BillingMachineDetail() {
         </div>
       )}
     </section>
+    </>
   );
 }

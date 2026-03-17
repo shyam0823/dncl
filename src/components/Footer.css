@@ -3,9 +3,9 @@
 ========================= */
 
 .dncl-footer {
-  background: #08213c;
+  background: #000644;
   font-family: inherit;
-  color: #faf7f7;
+  color: #ffffff;
 }
 
 
@@ -89,7 +89,7 @@
 
 /* Icons */
 .dncl-footer-contact-item svg {
-  color: #3b82f6;
+  color: #ffffff;
   flex-shrink: 0;
 }
 
@@ -100,7 +100,7 @@
 }
 
 .dncl-footer-contact-item a:hover {
-  color: #ffffff;
+  color: #fbe202;
   text-decoration: underline;
 }
 
@@ -181,6 +181,13 @@
   .dncl-footer-contact-item {
     justify-content: center;
   }
+
+.dncl-footer-brand {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: -12px;   /* adjust this value */
+}
 }
 
 
@@ -221,7 +228,7 @@
 
 
 .dncl-footer-follow h5 {
-  margin-bottom: 14px;   /* ✅ perfect spacing */
+  margin-bottom: 14px;   /*  perfect spacing */
 }
 
 
@@ -231,7 +238,7 @@
 .dncl-footer h5,
 .dncl-footer p,
 .dncl-footer span {
-  color: #fefcfc;
+  color: #ffffff;
   opacity: 1;
 }
 
@@ -248,7 +255,7 @@
 
 
 .dncl-footer-brand img {
-  max-width: 260px;
+  max-width: 380px;
   width: 100%;
   height: auto;
   display: block;
@@ -276,7 +283,7 @@
 .dncl-footer-link,
 .dncl-footer p,
 .dncl-footer span {
-  font-size: 15px;      /* ⬅️ Slightly smaller than headings */
+  font-size: 15px;      /* Slightly smaller than headings */
   font-weight: 500;
   line-height: 1.7;
 }
@@ -291,16 +298,16 @@
 /* MOBILE ADJUSTMENT */
 @media (max-width: 600px) {
   .dncl-footer-brand img {
-    max-width: 150px;
+    max-width: 220px;
   }
 }
 
 
 
 .dncl-footer h5 {
-  font-size: 18px;          /* ⬅️ Bigger */
-  font-weight: 700;         /* ⬅️ Bold */
-  margin-bottom: 18px;      /* ⬅️ Space below heading */
+  font-size: 18px;          /*  Bigger */
+  font-weight: 700;         /*  Bold */
+  margin-bottom: 18px;      /*  Space below heading */
   letter-spacing: 0.3px;
   text-transform: none;
 }
@@ -319,7 +326,7 @@
 }
 
 .dncl-footer-makeinindia img {
-  max-width: 220px;   /* ✅ NORMAL SIZE */
+  max-width: 220px;   /* NORMAL SIZE */
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -457,14 +464,14 @@
   display: block;
   font-size: 15px;
   margin-bottom: 12px;
-  color: #cfcfcf;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .dncl-footer-link:hover {
-  color: #ffffff;
+  color: #fbe202;
   text-decoration: none;
 }
 

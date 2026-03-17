@@ -445,64 +445,100 @@
 
 
 /* ===============================
-   JOURNEY — CLEAN & ALIGNED
+   CONNECTED S CURVE TIMELINE
 ================================ */
 
-.dncl-journey {
-  position: relative;
-  padding-left: 56px; /* space for line + icons */
-}
-
-/* VERTICAL LINE */
-.dncl-journey-line {
-  position: absolute;
-  left: 24px;                /* 🔥 CENTER AXIS */
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: #1e40ff;
-  border-radius: 2px;
+.dncl-journey{
+  display:flex;
+  flex-direction:column;
+  gap:80px; /* spacing between items */
+  padding-top:20px;
 }
 
 /* ITEM */
-.dncl-journey-item {
-  position: relative;
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  margin-bottom: 36px;
+.dncl-journey-item{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  position:relative;
+  max-width:280px;
 }
 
-
-
-/* ICON CIRCLE */
-.dncl-journey-item .icon {
-  width: 44px;
-  height: 44px;
-  background: #e8ecff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1e40ff;
-  flex-shrink: 0;
-  margin-left: -2px;         /* optical alignment */
+/* ICON */
+.dncl-journey-item .icon{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:3px solid #1e40ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1e40ff;
+  background:white;
+  flex-shrink:0;
+  position:relative;
+  z-index:2;
 }
 
 /* TEXT */
-.dncl-journey-item h4 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: #1e40ff;
+
+.dncl-journey-item h4{
+  font-size:17px;
+  color:#1e40ff;
+  font-weight:700;
+  margin-bottom:4px;
 }
 
-.dncl-journey-item p {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
+.dncl-journey-item p{
+  font-size:13px;
+  color:#555;
 }
 
+/* ZIG ZAG POSITION */
+
+.dncl-journey-item.left{
+  margin-left:0;
+}
+
+.dncl-journey-item.right{
+  margin-left:50px;
+}
+
+.timeline-path{
+  position:absolute;
+  left:20px;  
+  top:0;
+  width:160px;
+  height:100%;
+  z-index:0;
+}
+
+.timeline-path path{
+  fill:none;
+  stroke:#1e40ff;
+  stroke-width:2;
+  stroke-dasharray:4 6;
+}
+
+.dncl-journey{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:95px;
+}
+
+
+.dncl-journey-item:nth-child(2){
+  margin-left:32px;   
+}
+
+.dncl-journey-item:nth-child(4){
+  margin-left:34px;  
+}
+
+.dncl-journey-item:nth-child(5){
+  margin-left:72px;   
+}
 
 /* ===============================
    RESPONSIVE FIX
@@ -601,7 +637,36 @@
   .dncl-journey-item p {
     font-size: 13px;
   }
+
+@media (max-width:768px){
+
+  .dncl-journey::before{
+    left:24px;
+  }
+
+  .dncl-journey-item{
+    width:100%;
+    padding-left:70px;
+    text-align:left;
+  }
+
+  .dncl-journey-item.left,
+  .dncl-journey-item.right{
+    left:0;
+  }
+
+  .dncl-journey-item .icon{
+    left:0;
+  }
+
+  .dncl-journey-item::after{
+    display:none;
+  }
+
 }
+
+}
+
 
 
   /* MAKE IN INDIA */

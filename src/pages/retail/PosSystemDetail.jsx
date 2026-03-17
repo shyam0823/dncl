@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import PosSystemData from "../../details/PosSystemData";
 import ModelViewer from "../../components/ModelViewer";
 import "./PosSystemDetail.css";
@@ -16,9 +17,7 @@ export default function PosSystemDetail() {
 
   if (!product) return <h2>Product not found</h2>;
 
-  /* ===============================
-     TECHNICAL HIGHLIGHTS (TOP RIGHT)
-     =============================== */
+  /* TECHNICAL HIGHLIGHTS */
   const techHighlights = [
     ...(product.specifications.display || []).slice(0, 2),
     ...(product.specifications.scanner || []).slice(0, 1),
@@ -27,72 +26,112 @@ export default function PosSystemDetail() {
   ].slice(0, 5);
 
   return (
-    <section className="pos-detail">
-      {/* ================= TOP SECTION ================= */}
-      <div className="pos-top">
-        {/* IMAGE */}
-        <div className="pos-image-box">
-          <img src={product.image} alt={product.title} />
+    <>
+      {/* ===== SEO ===== */}
+      <Helmet>
+        <title>{product.title} POS System | DNCL Technologies</title>
 
-          {/* MODEL NUMBER */}
-          <div className="pos-model">
-            Model No: <strong>{product.modelNumber}</strong>
+        <meta
+          name="description"
+          content={`${product.title} POS system for retail stores and supermarkets with fast billing, barcode scanning and inventory management.`}
+        />
+
+        <link
+          rel="canonical"
+          href={`https://dncltech.com/retail/pos/${product.id}`}
+        />
+
+        <meta property="og:title" content={`${product.title} POS System`} />
+        <meta
+          property="og:description"
+          content="Retail POS system with high performance and reliable billing solutions."
+        />
+        <meta property="og:type" content="product" />
+
+        {/* PRODUCT SCHEMA */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.title,
+            brand: "DNCL Technologies",
+            model: product.modelNumber,
+            description: "Retail POS system for stores and supermarkets",
+            image: product.image,
+            url: `https://dncltech.com/retail/pos/${product.id}`
+          })}
+        </script>
+      </Helmet>
+
+      <section className="pos-detail">
+        {/* ================= TOP SECTION ================= */}
+
+        <div className="pos-top">
+          {/* IMAGE */}
+          <div className="pos-image-box">
+            <img
+              src={product.image}
+              alt={`Retail POS System ${product.title}`}
+              loading="lazy"
+            />
+
+            <div className="pos-model">
+              Model No: <strong>{product.modelNumber}</strong>
+            </div>
+          </div>
+
+          {/* INFO */}
+          <div className="pos-info">
+            <h1>{product.title}</h1>
+
+            <ul className="pos-highlights">
+              {techHighlights.map((item, i) => (
+                <li key={i}>
+                  <strong>{item[0]}:</strong> {item[1]}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* INFO */}
-        <div className="pos-info">
-          <h1>{product.title}</h1>
+        {/* ================= TABS ================= */}
 
-          <ul className="pos-highlights">
-            {techHighlights.map((item, i) => (
-              <li key={i}>
-                <strong>{item[0]}:</strong> {item[1]}
-              </li>
-            ))}
-          </ul>
+        <div className="tabs">
+          <button
+            onClick={() => setTab("specs")}
+            className={tab === "specs" ? "active" : ""}
+          >
+            Specifications
+          </button>
+
+          <button
+            onClick={() => setTab("features")}
+            className={tab === "features" ? "active" : ""}
+          >
+            Features
+          </button>
+
+          <button
+            onClick={() => setTab("model")}
+            className={tab === "model" ? "active" : ""}
+          >
+            3D Model
+          </button>
+
+          <button
+            onClick={() => setTab("download")}
+            className={tab === "download" ? "active" : ""}
+          >
+            Downloads
+          </button>
         </div>
-      </div>
 
-      {/* ================= TABS ================= */}
-      <div className="tabs">
-        <button
-          onClick={() => setTab("specs")}
-          className={tab === "specs" ? "active" : ""}
-        >
-          Specifications
-        </button>
+        {/* ================= TAB CONTENT ================= */}
 
-        <button
-  onClick={() => setTab("features")}
-  className={tab === "features" ? "active" : ""}
->
-  Features
-</button>
-
-<button
-  onClick={() => setTab("model")}
-  className={tab === "model" ? "active" : ""}
->
-  3D Model
-</button>
-
-<button
-  onClick={() => setTab("download")}
-  className={tab === "download" ? "active" : ""}
->
-  Downloads
-</button>
-
-      </div>
-
-      {/* ================= TAB CONTENT ================= */}
-
-      {/* ===== SPECIFICATIONS ===== */}
-      {tab === "specs" && (
-        <>
-          {Object.entries(product.specifications).map(
-            ([section, rows]) => (
+        {/* SPECIFICATIONS */}
+        {tab === "specs" && (
+          <>
+            {Object.entries(product.specifications).map(([section, rows]) => (
               <div className="spec-block" key={section}>
                 <h3 className="spec-title">
                   {section.replace("_", " ").toUpperCase()}
@@ -109,50 +148,43 @@ export default function PosSystemDetail() {
                   </tbody>
                 </table>
               </div>
-            )
-          )}
+            ))}
+          </>
+        )}
 
-        </>
-      )}
+        {/* FEATURES */}
+        {tab === "features" && (
+          <ul className="feature-list">
+            {product.features.map((f, i) => (
+              <li key={i}>{f}</li>
+            ))}
+          </ul>
+        )}
 
-      {/* ===== FEATURES ===== */}
-      {tab === "features" && (
-        <ul className="feature-list">
-          {product.features.map((f, i) => (
-            <li key={i}>{f}</li>
-          ))}
-        </ul>
-      )}
+        {/* 3D MODEL */}
+        {tab === "model" && (
+          <div className="model-section">
+            <h2>3D Product View</h2>
 
+            <div className="model-card">
+              <ModelViewer model={product.model} />
+            </div>
+          </div>
+        )}
 
-      {/* ===== 3D MODEL TAB ===== */}
-{tab === "model" && (
-  <div className="model-section">
-    <h2>3D Product View</h2>
+        {/* DOWNLOAD */}
+        {tab === "download" && (
+          <div className="download-actions">
+            <a href={product.download} target="_blank" rel="noopener noreferrer">
+              View Datasheet
+            </a>
 
-    <div className="model-card">
-      <ModelViewer model={product.model} />
-    </div>
-  </div>
-)}
-
-
-      {/* ===== DOWNLOAD ===== */}
-      {tab === "download" && (
-        <div className="download-actions">
-          <a
-            href={product.download}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Datasheet
-          </a>
-
-          <a href={product.download} download>
-            Download Datasheet
-          </a>
-        </div>
-      )}
-    </section>
+            <a href={product.download} download>
+              Download Datasheet
+            </a>
+          </div>
+        )}
+      </section>
+    </>
   );
 }

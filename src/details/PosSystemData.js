@@ -1,5 +1,5 @@
 import pos15Img from "../assets/15.6.jpeg";
-import posTouchImg from "../assets/barcode.jpeg";
+import posTouchImg from "../assets/17.1.jpeg";
 
 const PosSystemData = [
   {

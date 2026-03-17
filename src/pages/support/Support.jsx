@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLocation, Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import {
@@ -48,7 +49,6 @@ export default function Support() {
     { label: "Resolved", icon: CheckCircle }
   ];
 
-  // 🔒 Country-wise HARD limit
   const handlePhoneChange = (value) => {
     if (!value) {
       setMobile(value);
@@ -103,12 +103,41 @@ export default function Support() {
       return;
     }
 
-    // ✅ FRONTEND ONLY — NO BACKEND
     setTicketRaised(true);
   };
 
-  return (
-    <>
+return (
+<>
+  <Helmet>
+
+    <title>Technical Support | DNCL Technologies</title>
+
+    <meta
+      name="description"
+      content="Raise a support ticket or contact DNCL Technologies for assistance with POS systems, billing machines and industrial automation products."
+    />
+
+    <link
+      rel="canonical"
+      href="https://dncltech.com/support"
+    />
+
+    <meta property="og:title" content="Technical Support | DNCL Technologies" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dncltech.com/support" />
+
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "DNCL Technologies Support",
+        "url": "https://dncltech.com/support",
+        "description": "Customer support for DNCL retail POS systems and industrial automation products."
+      })}
+    </script>
+
+  </Helmet>
+  
       {/* ================= TICKET SECTION ================= */}
       <section
         className="ticket-wrapper page-offset"

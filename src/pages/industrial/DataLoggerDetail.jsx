@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import DataLoggerData from "../../details/DataLoggerData";
 import ModelViewer from "../../components/ModelViewer";
 import "./DataLoggerDetail.css";
@@ -22,8 +23,45 @@ function DataLoggerDetail() {
 
   if (!product) return <h2 style={{ padding: 40 }}>Product not found</h2>;
 
-  return (
-    <section className="pop-section">
+return (
+<>
+  <Helmet>
+
+    <title>{product.title} Data Logger | DNCL Technologies</title>
+
+    <meta
+      name="description"
+      content={`${product.title} industrial data logger for monitoring temperature, voltage and automation signals.`}
+    />
+
+    <link
+      rel="canonical"
+      href={`https://dncltech.com/industrial/data-logger/${product.id}`}
+    />
+
+    <meta property="og:title" content={`${product.title} Data Logger`} />
+    <meta property="og:type" content="product" />
+    <meta
+      property="og:url"
+      content={`https://dncltech.com/industrial/data-logger/${product.id}`}
+    />
+
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.title,
+        brand: "DNCL Technologies",
+        model: product.modelNumber,
+        image: product.image,
+        description: "Industrial data logger for automation monitoring and data acquisition",
+        url: `https://dncltech.com/industrial/data-logger/${product.id}`
+      })}
+    </script>
+
+  </Helmet>
+
+  <section className="pop-section">
       {/* ================= TITLE ================= */}
       <h1 className="pop-title">
         <span className="title-black">{product.title}</span>{" "}
@@ -34,8 +72,9 @@ function DataLoggerDetail() {
       <div className="pop-card">
         <img
           src={product.image}
-          alt={product.subtitle}
+          alt={`DNCL ${product.title} Industrial Data Logger`}
           className="pop-image"
+          loading="lazy"
         />
 
         <div className="pop-overlay">
@@ -127,6 +166,7 @@ function DataLoggerDetail() {
         </div>
       )}
     </section>
+    </>
   );
 }
 

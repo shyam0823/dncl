@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import "./Header.css";
 
-import logoInner from "../assets/newlogo.png";
+import logoInner from "../assets/DNCL.png";
 import madeIn from "../assets/madein.png";
 
 export default function Header() {
@@ -55,13 +55,55 @@ export default function Header() {
     };
   }, [isDropdownHovered]);
 
+  // ================= NAVIGATION SCHEMA =================
+useEffect(() => {
+  const existing = document.getElementById("header-nav-schema");
+  if (existing) existing.remove();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  name: [
+    "Home",
+    "Retail Products",
+    "Industrial Products",
+    "About Us",
+    "Become a Distributor",
+    "Support",
+    "Careers"
+  ],
+  url: [
+    "https://dncltech.com/",
+    "https://dncltech.com/retail",
+    "https://dncltech.com/industrial",
+    "https://dncltech.com/about",
+    "https://dncltech.com/distributor",
+    "https://dncltech.com/support",
+    "https://dncltech.com/careers"
+  ]
+};
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = "header-nav-schema";
+  script.textContent = JSON.stringify(schema);
+
+  document.head.appendChild(script);
+
+  return () => script.remove();
+}, []);
+
   return (
     <header className={`dncl-header ${showHeader ? "show" : "hide"}`}>
       <div className="dncl-header-container">
 
         {/* LEFT — LOGO */}
         <Link to="/" className="dncl-logo">
-          <img src={logoInner} className="logo-inner" alt="DNCL" />
+         <img
+        src={logoInner}
+        className="logo-inner"
+        alt="DNCL Technologies Industrial Automation and POS Systems"
+      />
         </Link>
 
         {/* CENTER — DESKTOP NAV */}
@@ -105,7 +147,11 @@ export default function Header() {
 
         {/* RIGHT — LION + HAMBURGER */}
         <div className="dncl-header-right">
-          <img src={madeIn} alt="Made in India" className="madein-badge" />
+          <img
+          src={madeIn}
+          alt="DNCL Technologies Made in India Industrial Automation Products"
+          className="madein-badge"
+        />
 
           <button
             className="mobile-menu-btn"
